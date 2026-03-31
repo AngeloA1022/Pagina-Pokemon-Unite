@@ -1,0 +1,229 @@
+/* Paleta accesible (WCAG AA)
+     Contraste esperado (aprox.):
+         - --bg vs --text: 15.9:1  (cumple AA y AAA para texto normal)
+         - --primary vs --primary-contrast: 5.3:1  (cumple AA para texto normal)
+         - --primary sobre --bg: 5.3:1  (cumple AA)
+
+     Variables:
+         --bg: fondo principal
+         --text: color de texto principal sobre el fondo
+         --primary: color principal de botones/elementos
+         --primary-contrast: color del texto sobre el botón primario
+*/
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+        --bg: #ffffff;
+        --text: #111827;
+        --primary: #0056b3;
+        --primary-contrast: #ffffff;
+        --nav-height: 80px;
+        --nav-bg: rgba(255,255,255,0.95);
+}
+
+body{
+        font-family: Arial, Helvetica, sans-serif;
+        height: 100%;
+        width: 100vw;
+        display: center ;
+        justify-content: center;
+        align-items: center;
+        background-image: url("../images/fondo.jpg");
+        background-attachment: fixed;
+        scroll-behavior: smooth;
+        background-position: center;
+        color: black;
+        background-size: cover;
+        border: center;
+}
+
+header{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+    border: center;
+    max-width: 1200px;
+    margin:0 auto;
+}
+
+.logo {
+    position: relative;
+    display: block;
+    padding: 6px 0;
+}
+.logo h1 {
+    margin: 0;
+}
+.logo-img {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 120px;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+nav ul {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    list-style: none;
+    text-decoration: none;
+    background-color: transparent;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 0;
+    width: 85%;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+nav ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+}
+
+
+
+section {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 15px;;
+    width: 85%;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.imagenes-consejos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto 20px;
+
+}
+
+.consejo-img {
+    width: 35%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: 10px auto 20px;
+}
+
+.imagenes-mapas {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto 20px;
+
+}
+
+.mapa-img {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: 15px auto 20px;
+}
+
+
+
+.card img {
+    width: 30%; 
+    height: auto; 
+    border-radius: 10px; 
+} 
+
+.card { 
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 15px; 
+    margin: 10px auto; 
+    border-radius: 15px;
+    width: 85%;
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.card-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.button { 
+    background-color: #4CAF50; 
+    color: black; 
+    padding: 10px 16px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+}
+
+.attack-button {
+    background-color: #e74c3c;
+    color: black;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    border: center;
+    border-radius: 5px;
+}
+
+.set-button {
+    background-color: #3498db;
+    color: black;
+    padding: 8px 10px;
+    justify-content: center;
+}
+
+.button:hover { 
+    background-color: #45a049; 
+}
+
+nav {
+  height: var(--nav-height);
+  transition: height 0.3s ease, background-color 0.3s ease;
+}
+
+nav.scrolled {
+  --nav-height: 60px;
+  --nav-bg: rgba(255,255,255,0.98);
+  background-color: var(--nav-bg);
+  justify-content: center;
+  align-items: center;
+}

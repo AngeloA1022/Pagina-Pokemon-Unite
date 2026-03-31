@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia para Pokemon Unite</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="images/logo.png" alt="Logo de Pokemon Unite" class="logo-img"> 
+        <h1>Guia para Pokemon Unite</h1>
+    </div>
+
+    <div class="container">
+        <p>Bienvenido a la guía de Pokemon Unite, el juego de batalla en equipo que ha conquistado a millones de jugadores en todo el mundo.
+        En esta guía, encontrarás consejos, estrategias y trucos para mejorar tu rendimiento en el campo de batalla y convertirte en un maestro de Pokemon Unite.</p>
+        <br>
+    </div>
+    <hr>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#consejos">Consejos</a></li>
+        <li><a href="#personajes">Personajes</a></li>
+        <li><a href="#mapas">Mapas</a></li>
+        <li><a href="#objetos">Objetos</a></li>
+    </ul>
+</nav>
+<hr>
+<section id="inicio" class="Inicio">
+    <div class="container">
+
+        <h2>Inicio</h2>
+        <p>En esta sección encontrarás una introducción al juego, consejos para principiantes y estrategias básicas para comenzar tu aventura en Pokemon Unite.</p>
+
+        <h2>Introducción a Pokemon Unite</h2>
+        <p>Pokemon Unite es un juego de batalla en equipo desarrollado por TiMi Studios y publicado por The Pokemon Company. En este juego, los jugadores forman equipos de cinco para competir en batallas estratégicas en tiempo real. El objetivo es derrotar a los oponentes y anotar puntos al capturar objetivos en el mapa.</p>       
+        <br>
+    </div>
+</section>
+<section id="consejos" class="seccion">
+    <div class="container">
+    <h1>Consejos para principiantes </h1>
+    <div class="imagenes-consejos">
+    </div>
+    <h2>1. Conoce a tus Pokemon</h2>
+    <p>En Pokemon Unite, cada Pokemon tiene habilidades únicas y roles específicos. Es importante conocer las fortalezas y debilidades de cada Pokemon para elegir el que mejor se adapte a tu estilo de juego. Algunos Pokemon son excelentes para atacar, mientras que otros son mejores para defender o apoyar a tu equipo.</p>
+    <img src="images/pokemon.jpeg" alt="Pokemon" class="consejo-img">
+
+    <h2>2. Trabaja en equipo</h2>
+    <p>Pokemon Unite es un juego de equipo, por lo que la comunicación y la cooperación con tus compañeros de equipo son esenciales. Coordina tus movimientos, comparte información sobre los enemigos y trabaja juntos para controlar el mapa y asegurar objetivos importantes.</p>
+    <img src="images/trabajoen equipo.jpg" alt="Trabaja en equipo" class="consejo-img">
+
+    <h2>3. Controla el mapa</h2>
+    <p>El control del mapa es crucial en Pokemon Unite. Asegúrate de mantener un ojo en los objetivos clave como los Drones, los Rotom y los Zapdos. Controlar estos objetivos puede darte una ventaja significativa sobre el equipo contrario.</p>
+    <img src="images/mapa.jpg" alt="Controla el mapa" class="consejo-img">
+
+    </div>
+</section>
+
+<section id="personajes" class="seccion">
+    <div class="container">
+    <h1>Personajes</h1>
+    <h2>Pokemon</h2>
+    <p>En Pokemon Unite, cada Pokemon tiene habilidades únicas y roles específicos. Es importante conocer las fortalezas y debilidades de cada Pokemon para elegir el que mejor se adapte a tu estilo de juego. Algunos Pokemon son excelentes para atacar, mientras que otros son mejores para defender o apoyar a tu equipo.</p>
+    
+
+    <div class="card">
+        <h3>Blastoise</h3>
+        <div class="card-content">
+            <img src="images/blastoise.png" alt="Blastoise" class="pokemon-img">
+            <div class="card-buttons">
+                <button class="button" onclick="toggleDescription(this)">Ver descripción</button>
+                <button class="button attack-button" onclick="toggleInfo('blastoise-attack1')">Ataque 1</button>
+                <button class="button attack-button" onclick="toggleInfo('blastoise-attack2')">Ataque 2</button>
+                <button class="button set-button" onclick="toggleInfo('blastoise-set')">Set recomendado</button>
+            </div>
+        </div>
+        <p style="display: none;">Blastoise es un Pokemon de tipo agua que se destaca por su gran defensa y poder de ataque. Sus habilidades incluyen movimientos acuáticos y ataques potentes que pueden causar daño masivo a los enemigos. Es ideal para jugadores que prefieren un estilo de juego defensivo.</p>
+        <div id="blastoise-attack1" style="display: none;" class="attack-options">
+            <label><input type="radio" name="blastoise-attack1" value="Hidrobomba"> Hidrobomba</label>
+            <label><input type="radio" name="blastoise-attack1" value="Salpicadura"> Salpicadura</label>
+            <p id="blastoise-attack1-selected"></p>
+        </div>
+        <div id="blastoise-attack2" style="display: none;" class="attack-options">
+            <label><input type="radio" name="blastoise-attack2" value="Giro Rapido"> Giro Rapido</label>
+            <label><input type="radio" name="blastoise-attack2" value="Surf"> Surf</label>
+            <p id="blastoise-attack2-selected"></p>
+        </div>
+        <div id="blastoise-set" style="display: none;">Set recomendado para Blastoise: Objetos: Cinturón Fuerza, Remolino, Gafas Eléctricas</div>
+    </div>
+
+
+    <div class="card">
+        <h3>Charizard</h3>
+        <div class="card-content">
+            <img src="images/charizard.png" alt="Charizard" class="pokemon-img">
+            <div class="card-buttons">
+                <button class="button" onclick="toggleDescription(this)">Ver descripción</button>
+                <button class="button attack-button" onclick="toggleInfo('charizard-attack1')">Ataque 1</button>
+                <button class="button attack-button" onclick="toggleInfo('charizard-attack2')">Ataque 2</button>
+                <button class="button set-button" onclick="toggleInfo('charizard-set')">Set recomendado</button>
+            </div>
+        </div>
+        <p style="display: none;">Charizard es un Pokemon de tipo fuego y volador que se destaca por su gran poder ofensivo. Sus habilidades incluyen ataques de fuego y movimientos aéreos que pueden causar daño masivo a los enemigos. Es ideal para jugadores que prefieren un estilo de juego agresivo.</p>
+        <div id="charizard-attack1" style="display: none;" class="attack-options">
+            <label><input type="radio" name="charizard-attack1" value="Lanza LLamas"> Lanzallamas</label>
+            <label><input type="radio" name="charizard-attack1" value="Puño Fuego"> Puño Fuego</label>
+            <p id="charizard-attack1-selected"></p>
+        </div>
+        <div id="charizard-attack2" style="display: none;" class="attack-options">
+            <label><input type="radio" name="charizard-attack2" value="Llamarada"> Llamarada</label>
+            <label><input type="radio" name="charizard-attack2" value="Envite Igneo"> Envite Igneo</label>
+            <p id="charizard-attack2-selected"></p>
+        </div>
+        <div id="charizard-set" style="display: none;">Set recomendado para Charizard: Objetos: Cinturón Fuerza, Remolino, Gafas Eléctricas</div>
+    </div>
+    
+
+    <div class="card">
+        <h3>Venusaur</h3>
+        <div class="card-content">
+            <img src="images/venusaur.png" alt="Venusaur" class="pokemon-img">
+            <div class="card-buttons">
+                <button class="button" onclick="toggleDescription(this)">Ver descripción</button>
+                <button class="button attack-button" onclick="toggleInfo('venusaur-attack1')">Ataque 1</button>
+                <button class="button attack-button" onclick="toggleInfo('venusaur-attack2')">Ataque 2</button>
+                <button class="button set-button" onclick="toggleInfo('venusaur-set')">Set recomendado</button>
+            </div>
+        </div>
+        <p style="display: none;">Venusaur es un Pokemon de tipo planta que se destaca por su gran defensa y poder de ataque. Sus habilidades incluyen movimientos vegetales y ataques potentes que pueden causar daño masivo a los enemigos. Es ideal para jugadores que prefieren un estilo de juego defensivo.</p>
+        <div id="venusaur-attack1" style="display: none;" class="attack-options">
+            <label><input type="radio" name="venusaur-attack1" value="Bomba Lodo"> Bomba Lodo</label>
+            <label><input type="radio" name="venusaur-attack1" value="Giga Drenaje"> Giga Drenaje</label>
+            <p id="venusaur-attack1-selected"></p>
+        </div>
+        <div id="venusaur-attack2" style="display: none;" class="attack-options">
+            <label><input type="radio" name="venusaur-attack2" value="Rayo Solar"> Rayo Solar</label>
+            <label><input type="radio" name="venusaur-attack2" value="Danza Petalo"> Danza Petalo</label>
+            <p id="venusaur-attack2-selected"></p>
+        </div>
+        <div id="venusaur-set" style="display: none;">Set recomendado para Venusaur: Objetos: Cinturón Fuerza, Remolino, Gafas Eléctricas</div>
+    </div>
+
+
+    <div class="card">
+        <h3>Pikachu</h3>
+        <div class="card-content">
+            <img src="images/pikachu.png" alt="Pikachu" class="pokemon-img">
+            <div class="card-buttons">
+                <button class="button" onclick="toggleDescription(this)">Ver descripción</button>
+                <button class="button attack-button" onclick="toggleInfo('pikachu-attack1')">Ataque 1</button>
+                <button class="button attack-button" onclick="toggleInfo('pikachu-attack2')">Ataque 2</button>
+                <button class="button set-button" onclick="toggleInfo('pikachu-set')">Set recomendado</button>
+            </div>
+        </div>
+        <p style="display: none;">Pikachu es un Pokemon de tipo eléctrico que se destaca por su velocidad y poder de ataque. Sus habilidades incluyen movimientos rápidos y ataques eléctricos que pueden paralizar a los enemigos. Es ideal para jugadores que prefieren un estilo de juego rápido y táctico.</p>
+        <div id="pikachu-attack1" style="display: none;" class="attack-options">
+            <label><input type="radio" name="pikachu-attack1" value="Trueno"> Trueno</label>
+            <label><input type="radio" name="pikachu-attack1" value="Bola Voltio"> Bola Voltio</label>
+            <p id="pikachu-attack1-selected"></p>
+        </div>
+        <div id="pikachu-attack2" style="display: none;" class="attack-options">
+            <label><input type="radio" name="pikachu-attack2" value="Placaje Eléctrico"> Placaje Eléctrico</label>
+            <label><input type="radio" name="pikachu-attack2" value="Rayo"> Rayo</label>
+            <p id="pikachu-attack2-selected"></p>
+        </div>
+        <div id="pikachu-set" style="display: none;">Set recomendado para Pikachu: Objetos: Páramo Glacial, Atuendo de Marcávora, Banda Focus</div>
+    </div>
+
+        <div class="card">
+        <h3>Greninja</h3>
+        <div class="card-content">
+            <img src="images/greninja.png" alt="Greninja" class="pokemon-img">
+            <div class="card-buttons">
+                <button class="button" onclick="toggleDescription(this)">Ver descripción</button>
+                <button class="button attack-button" onclick="toggleInfo('greninja-attack1')">Ataque 1</button>
+                <button class="button attack-button" onclick="toggleInfo('greninja-attack2')">Ataque 2</button>
+                <button class="button set-button" onclick="toggleInfo('greninja-set')">Set recomendado</button>
+            </div>
+        </div>
+        <p style="display: none;">Greninja es un Pokemon de tipo agua y lucha que se destaca por su velocidad y poder de ataque. Sus habilidades incluyen movimientos rápidos y ataques de agua que pueden paralizar a los enemigos. Es ideal para jugadores que prefieren un estilo de juego rápido y táctico.</p>
+        <div id="greninja-attack1" style="display: none;" class="attack-options">
+            <label><input type="radio" name="greninja-attack1" value="Doble Equipo"> Doble Equipo</label>
+            <label><input type="radio" name="greninja-attack1" value="Pantalla de Humo"> Pantalla de Humo</label>
+            <p id="greninja-attack1-selected"></p>
+        </div>
+        <div id="greninja-attack2" style="display: none;" class="attack-options">
+            <label><input type="radio" name="greninja-attack2" value="Shuriken de Agua"> Shuriken de Agua</label>
+            <label><input type="radio" name="greninja-attack2" value="Surf"> Surf</label>
+            <p id="greninja-attack2-selected"></p>
+        </div>
+        <div id="greninja-set" style="display: none;">Set recomendado para Greninja: Objetos: Páramo Glacial, Atuendo de Marcávora, Banda Focus</div>
+    </div>
+
+    <div class="card">
+        <h3>Decidueye</h3>
+        <div class="card-content">
+            <img src="images/decidueye.png" alt="Decidueye" class="pokemon-img">
+            <div class="card-buttons">
+                <button class="button" onclick="toggleDescription(this)">Ver descripción</button>
+                <button class="button attack-button" onclick="toggleInfo('decidueye-attack1')">Ataque 1</button>
+                <button class="button attack-button" onclick="toggleInfo('decidueye-attack2')">Ataque 2</button>
+                <button class="button set-button" onclick="toggleInfo('decidueye-set')">Set recomendado</button>
+            </div>
+        </div>
+        <p style="display: none;">Decidueye es un Pokemon de tipo planta y volador que se destaca por su velocidad y poder de ataque. Sus habilidades incluyen movimientos rápidos y ataques de planta que pueden paralizar a los enemigos. Es ideal para jugadores que prefieren un estilo de juego rápido y táctico.</p>
+        <div id="decidueye-attack1" style="display: none;" class="attack-options">
+            <label><input type="radio" name="decidueye-attack1" value="Hoja Afilada"> Hoja Afilada</label>
+            <label><input type="radio" name="decidueye-attack1" value="Puntada Sombría"> Puntada Sombría</label>
+            <p id="decidueye-attack1-selected"></p>
+        </div>
+        <div id="decidueye-attack2" style="display: none;" class="attack-options">
+            <label><input type="radio" name="decidueye-attack2" value="Lluvia Hoja"> Lluvia Hoja</label>
+            <label><input type="radio" name="decidueye-attack2" value="Sombra Vil"> Sombra Vil</label>
+            <p id="decidueye-attack2-selected"></p>
+        </div>
+        <div id="decidueye-set" style="display: none;">Set recomendado para Decidueye: Objetos: Páramo Glacial, Atuendo de Marcávora, Banda Focus</div>
+    </div>
+
+    <div class="card">
+        <h3>Cinderace</h3>
+        <div class="card-content">
+            <img src="images/cinderace.png" alt="Cinderace" class="pokemon-img">
+            <div class="card-buttons">
+                <button class="button" onclick="toggleDescription(this)">Ver descripción</button>
+                <button class="button attack-button" onclick="toggleInfo('cinderace-attack1')">Ataque 1</button>
+                <button class="button attack-button" onclick="toggleInfo('cinderace-attack2')">Ataque 2</button>
+                <button class="button set-button" onclick="toggleInfo('cinderace-set')">Set recomendado</button>
+            </div>
+        </div>
+        <p style="display: none;">Cinderace es un Pokemon de tipo fuego que se destaca por su velocidad y poder de ataque. Sus habilidades incluyen movimientos rápidos y ataques de fuego que pueden quemar a los enemigos. Es ideal para jugadores que prefieren un estilo de juego rápido y táctico.</p>
+        <div id="cinderace-attack1" style="display: none;" class="attack-options">
+            <label><input type="radio" name="cinderace-attack1" value="Balon Igneo"> Balon de Fuego</label>
+            <label><input type="radio" name="cinderace-attack1" value="Patada Fuego"> Patada Fuego</label>
+            <p id="cinderace-attack1-selected"></p>
+        </div>
+        <div id="cinderace-attack2" style="display: none;" class="attack-options">
+            <label><input type="radio" name="cinderace-attack2" value="Nitrocarga"> Nitrocarga</label>
+            <label><input type="radio" name="cinderace-attack2" value="Amago"> Amago</label>
+            <p id="cinderace-attack2-selected"></p>
+        </div>
+        <div id="cinderace-set" style="display: none;">Set recomendado para Cinderace: Objetos: Páramo Glacial, Atuendo de Marcávora, Banda Focus</div>
+    </div>
+
+        <div class="card">
+        <h3>Aegislash</h3>
+        <div class="card-content">
+            <img src="images/aegislash.png" alt="Aegislash" class="pokemon-img">
+            <div class="card-buttons">
+                <button class="button" onclick="toggleDescription(this)">Ver descripción</button>
+                <button class="button attack-button" onclick="toggleInfo('aegislash-attack1')">Ataque 1</button>
+                <button class="button attack-button" onclick="toggleInfo('aegislash-attack2')">Ataque 2</button>
+                <button class="button set-button" onclick="toggleInfo('aegislash-set')">Set recomendado</button>
+            </div>
+        </div>
+        <p style="display: none;">Aegislash es un Pokemon de tipo acero y fantasma que se destaca por su velocidad y poder de ataque. Sus habilidades incluyen movimientos rápidos y ataques de acero que pueden romper la defensa de los enemigos. Es ideal para jugadores que prefieren un estilo de juego rápido y táctico.</p>
+        <div id="aegislash-attack1" style="display: none;" class="attack-options">
+            <label><input type="radio" name="aegislash-attack1" value="Espada Santa"> Espada Santa</label>
+            <label><input type="radio" name="aegislash-attack1" value="Garra Umbría"> Garra Umbría</label>
+            <p id="aegislash-attack1-selected"></p>
+        </div>
+        <div id="aegislash-attack2" style="display: none;" class="attack-options">
+            <label><input type="radio" name="aegislash-attack2" value="Vastaguardia"> Vastaguardia</label>
+            <label><input type="radio" name="aegislash-attack2" value="Cabeza de Hierro"> Cabeza de Hierro</label>
+            <p id="aegislash-attack2-selected"></p>
+        </div>
+        <div id="aegislash-set" style="display: none;">Set recomendado para Aegislash: Objetos: Páramo Glacial, Atuendo de Marcávora, Banda Focus</div>
+    </div>
+
+        <div class="card">
+        <h3>Urshifu</h3>
+        <div class="card-content">
+            <img src="images/urshifu.png" alt="Urshifu" class="pokemon-img">
+            <div class="card-buttons">
+                <button class="button" onclick="toggleDescription(this)">Ver descripción</button>
+                <button class="button attack-button" onclick="toggleInfo('urshifu-attack1')">Ataque 1</button>
+                <button class="button attack-button" onclick="toggleInfo('urshifu-attack2')">Ataque 2</button>
+                <button class="button set-button" onclick="toggleInfo('urshifu-set')">Set recomendado</button>
+            </div>
+        </div>
+        <p style="display: none;">Urshifu es un Pokemon de tipo lucha que se destaca por su poder de ataque y defensa. Sus habilidades incluyen movimientos rápidos y ataques de lucha que pueden derrotar a los enemigos. Es ideal para jugadores que prefieren un estilo de juego balanceado y táctico.</p>
+        <div id="urshifu-attack1" style="display: none;" class="attack-options">
+            <label><input type="radio" name="urshifu-attack1" value="Golpe Oscuro"> Golpe Oscuro</label>
+            <label><input type="radio" name="urshifu-attack1" value="Azote Torrencial"> Azote Torrencial</label>
+            <p id="urshifu-attack1-selected"></p>
+        </div>
+        <div id="urshifu-attack2" style="display: none;" class="attack-options">
+            <label><input type="radio" name="urshifu-attack2" value="Golpe Mordaza"> Golpe Mordaza</label>
+            <label><input type="radio" name="urshifu-attack2" value="Hidroariete"> Hidroariete</label>
+            <p id="urshifu-attack2-selected"></p>
+        </div>
+        <div id="urshifu-set" style="display: none;">Set recomendado para Urshifu: Objetos: Páramo Glacial, Atuendo de Marcávora, Banda Focus</div>
+    </div>
+
+
+        <div class="card">
+        <h3>Goodra</h3>
+        <div class="card-content">
+            <img src="images/goodra.png" alt="Goodra" class="pokemon-img">
+            <div class="card-buttons">
+                <button class="button" onclick="toggleDescription(this)">Ver descripción</button>
+                <button class="button attack-button" onclick="toggleInfo('goodra-attack1')">Ataque 1</button>
+                <button class="button attack-button" onclick="toggleInfo('goodra-attack2')">Ataque 2</button>
+                <button class="button set-button" onclick="toggleInfo('goodra-set')">Set recomendado</button>
+            </div>
+        </div>
+        <p style="display: none;">Goodra es un Pokemon de tipo dragón que se destaca por su poder de ataque y defensa. Sus habilidades incluyen movimientos rápidos y ataques de dragón que pueden derrotar a los enemigos. Es ideal para jugadores que prefieren un estilo de juego balanceado y táctico.</p>
+        <div id="goodra-attack1" style="display: none;" class="attack-options">
+            <label><input type="radio" name="goodra-attack1" value="Agua Lodosa"> Agua Lodosa</label>
+            <label><input type="radio" name="goodra-attack1" value="Pulso Dragón"> Pulso Dragón</label>
+            <p id="goodra-attack1-selected"></p>
+        </div>
+        <div id="goodra-attack2" style="display: none;" class="attack-options">
+            <label><input type="radio" name="goodra-attack2" value="Latigazo"> Latigazo</label>
+            <label><input type="radio" name="goodra-attack2" value="Bomba Acida"> Bomba Acida</label>
+            <p id="goodra-attack2-selected"></p>
+        </div>
+        <div id="goodra-set" style="display: none;">Set recomendado para Goodra: Objetos: Páramo Glacial, Atuendo de Marcávora, Banda Focus</div>
+    </div>
+
+</section>
+
+<section id="mapas" class="Inicio">
+    <div class="container">
+        <br>
+        <h1>Mapas</h1>
+        <p>Los mapas en Pokémon UNITE definen no solo el aspecto visual, sino las reglas del juego, los Pokémon salvajes y los jefes que aparecen. A medida que avanzamos en 2026, el juego ha rotado y añadido escenarios con mecánicas únicas.</p>
+        <hr>
+    </div>
+
+    <div class="container">
+        <br>
+        <h2>Mapa Ruinas Celestiales</h2>Son los mapas principales para la competencia seria. Tienen tres carriles (superior, inferior y la "jungla" central).
+        <img src="images/mapa1_RC.jpg" alt="Mapa1" class="mapa-img">
+        <p>Ruta Superior: Derrota a Regieleki para que rompa la base rival y anotes al instante.</p>
+        <p>Ruta Inferior: Derrota a los Regis (Steel, Rock, Ice) para obtener mejoras de ataque, defensa o vida.</p>
+        <p>Zona Central: Derrota a Rayquaza al final para obtener un escudo que te hace imparable al anotar.</p>
+        <p>Jungla: Derrota a Accelgor (recarga de ataques) y Escavalier (ralentizar enemigos).</p>       
+        <br>
+    </div>
+
+    <hr>
+    <div class="container">
+        <br>
+        <h2>Mapa Cuidad Álgida</h2>Un mapa dinámico con cintas transportadoras y un entorno de hielo.
+        <img src="images/mapa2_CA.png" alt="Mapa2" class="mapa-img">
+        <p>Rutas Laterales: Derrota a los Abomasnow y Beartic repartidos por el mapa para ganar energía rápidamente y subir de nivel.</p>
+        <p>Zona Central: Derrota a Articuno para congelar las bases rivales, permitiendo anotaciones instantáneas por un tiempo limitado.</p>
+        <p>Mecánica de Hielo: Usa las cintas transportadoras para emboscar enemigos o huir rápidamente hacia las zonas de anotación.</p>
+        <p>Jungla: No tiene jefes de mejora (buffs) fijos como los mapas 5vs5, se centra en la eliminación rápida de Pokémon salvajes pequeños.</p>
+        <br>
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <br>
+        <h2>Mapa Parque Aural</h2>Un mapa único con forma triangular donde puedes anotar en las bases del rival y ellos en las tuyas de forma cruzada.
+        <img src="images/mapa3_PA.jpeg" alt="Mapa3" class="mapa-img">
+        <p> Ruta de Conexión: Utiliza las cintas transportadoras de alta velocidad para cruzar el mapa en segundos y sorprender en las bases.</p>
+        <p> Multiplicadores: Anotar en una base activa un multiplicador de puntos temporal, incentivando las rachas de anotación del equipo.</p>
+        <p> Zona Central: Derrota a Regigigas para obtener una enorme cantidad de puntos y facilitar que tu equipo anote más rápido en las bases centrales.</p>
+        <p> Jungla: Derrota a Araquanid y sus crías para recolectar energía de forma segura en las zonas interiores del triángulo.</p>
+
+        <br>
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <br>
+        <h2>Mapa Estadio Maremagno</h2>
+        <img src="images/mapa4_em.jpg" alt="Mapa4" class="mapa-img">
+        <p> Ruta Superior/Inferior: Derrota a los Ludicolo y Bouffalant que aparecen cerca de las zonas de anotación para obtener ventajas de combate constantes.</p>
+        <p> Zona Central: Derrota a Zapdos (que aparece varias veces por partida) para inhabilitar las bases enemigas y anotar al instante.</p>
+        <p> Jungla: Al ser un mapa tan pequeño, la "jungla" son pasillos estrechos donde los combates por los Corphish son constantes para no quedarse atrás en nivel.</p>
+        <br>
+    </div>
+
+
+</section>
+
+<section id="Objetos" class="seccion">
+    <div class="container">
+    <h1>Objetos </h1>
+    <div class="imagenes-consejos">
+    </div>
+    <h2>Pocion</h2>
+    <p>Este objeto se utiliza para curar los puntos de salud de un Pokemon.</p>
+
+    <h2>2. Trabaja en equipo</h2>
+    <p>Pokemon Unite es un juego de equipo, por lo que la comunicación y la cooperación con tus compañeros de equipo son esenciales. Coordina tus movimientos, comparte información sobre los enemigos y trabaja juntos para controlar el mapa y asegurar objetivos importantes.</p>
+
+
+    <h2>3. Controla el mapa</h2>
+    <p>El control del mapa es crucial en Pokemon Unite. Asegúrate de mantener un ojo en los objetivos clave como los Drones, los Rotom y los Zapdos. Controlar estos objetivos puede darte una ventaja significativa sobre el equipo contrario.</p>
+
+    </div>
+</section>
+
+
+
+
+<script>
+function toggleDescription(button) {
+    const card = button.closest('.card');
+    const p = card.querySelector('p');
+    if (p.style.display === 'none') {
+        p.style.display = 'block';
+        button.textContent = 'Ocultar descripción';
+    } else {
+        p.style.display = 'none';
+        button.textContent = 'Ver descripción';
+    }
+}
+
+function toggleInfo(id) {
+    const el = document.getElementById(id);
+    el.style.display = el.style.display === 'none' ? 'block' : 'none';
+    
+    // Agregar listeners a los radio buttons
+    const radios = el.querySelectorAll('input[type="radio"]');
+    radios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            const selectedId = id + '-selected';
+            const selectedElement = document.getElementById(selectedId);
+            if (selectedElement) {
+                selectedElement.textContent = 'Seleccionado: ' + this.value;
+            }
+        });
+    });
+}
+</script>
+</body>
+</html>
