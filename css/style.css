@@ -147,6 +147,23 @@ section {
 
 }
 
+.imagenes-objetos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto 20px;
+
+}
+
+.objeto-img {
+    width: 15%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: 10px auto;
+}
+
+
 .mapa-img {
     width: 50%;
     height: auto;
