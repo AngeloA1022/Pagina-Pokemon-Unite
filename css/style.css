@@ -244,3 +244,35 @@ nav.scrolled {
   justify-content: center;
   align-items: center;
 }
+
+
+.footer {
+    background-color: #ffffff; /* fondo blanco */
+    color: #222; /* texto oscuro */
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    border-top: 3px solid #4CAF50; /* línea verde */
+}
+
+.footer-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.footer h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #4CAF50; /* verde gamer */
+}
+
+
+.footer p {
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+.footer p:hover {
+    color: #4CAF50;
+    transition: 0.3s;
+}
