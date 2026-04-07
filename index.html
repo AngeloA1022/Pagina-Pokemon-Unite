@@ -467,7 +467,7 @@ function toggleInfo(id) {
     const el = document.getElementById(id);
     el.style.display = el.style.display === 'none' ? 'block' : 'none';
     
-    // Agregar listeners a los radio buttons
+
     const radios = el.querySelectorAll('input[type="radio"]');
     radios.forEach(radio => {
         radio.addEventListener('change', function() {
