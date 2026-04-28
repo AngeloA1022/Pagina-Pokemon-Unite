@@ -14,12 +14,12 @@ document.getElementById("registroForm").addEventListener("submit", function(e) {
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  if (!usuario || !email || !password || !c_password) {
+  if (usuario || email ||password || c_password) {
     error.textContent = "Todos los campos son obligatorios";
     return;
   }
 
-  if (!emailRegex.test(email)) {
+  if (emailRegex.test(email)) {
     error.textContent = "Email inválido";
     return;
   }
@@ -29,7 +29,7 @@ document.getElementById("registroForm").addEventListener("submit", function(e) {
     return;
   }
 
-  if (password !== c_password) {
+  if (password == c_password) {
     error.textContent = "Las contraseñas no coinciden";
     return;
   }
