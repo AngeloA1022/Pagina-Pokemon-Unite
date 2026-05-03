@@ -6,14 +6,41 @@
     <title>Guia para Pokemon Unite</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/icono.png" type="image/png">
+    <script src="app.js"></script>
 
 </head>
 <body>
 
+<!-- SECCIÓN FORMULARIOS -->
+<hr>
 
+<div class="formularios-flex">
 
+    <!-- REGISTRO -->
+    <div>
+        <h4>Registro</h4>
+        <form id="registroForm">
+            <input type="text" id="usuario" placeholder="Usuario">
+            <input type="email" id="email" placeholder="Correo">
+            <input type="password" id="password" placeholder="Contraseña">
+            <input type="password" id="confirmar" placeholder="Confirmar Contraseña">
+            <button type="submit">Registrarse</button>
+            <p id="mensajeRegistro"></p>
+        </form>
+    </div>
 
+    <!-- LOGIN -->
+    <div>
+        <h4>Login</h4>
+        <form id="loginForm">
+            <input type="email" id="loginEmail" placeholder="Correo">
+            <input type="password" id="loginPassword" placeholder="Contraseña">
+            <button type="submit">Ingresar</button>
+            <p id="mensajeLogin"></p>
+        </form>
+    </div>
 
+</div>
 
 
 
@@ -452,6 +479,24 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
 
     </div>
 </section>
+
+<section id="contacto-form" class="seccion">
+    <div class="container">
+        <h4>Formulario de Contacto</h4>
+
+        <form id="contactoForm">
+            <input type="text" id="nombre" placeholder="Nombre">
+            <input type="text" id="asunto" placeholder="Asunto">
+            <textarea id="mensaje" placeholder="Mensaje" maxlength="200"></textarea>
+
+            <p>Caracteres: <span id="contador">0</span>/200</p>
+
+            <button type="submit">Enviar</button>
+            <p id="mensajeContacto"></p>
+        </form>
+    </div>
+</section>
+
 
 <!--Seccion de Concacto--> 
 <footer id="contacto" class="footer">

@@ -1,22 +1,144 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width-device-width, initial-scale=1.0">
-    <title>Mi Registro</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formularios</title>
+
+
+
+
+<style>
+/* ===== ESTILO GENERAL ===== */
+body{
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+    margin: 0;
+    padding: 20px;
+}
+
+/* ===== CONTENEDOR ===== */
+.formularios-flex {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* ===== FORMULARIOS ===== */
+form {
+    background: #0d0d0d;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #00ff88;
+    max-width: 350px;
+    width: 100%;
+}
+
+/* Inputs */
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #00ff88;
+    border-radius: 5px;
+    background: #000;
+    color: #00ff88;
+}
+
+/* Focus */
+form input:focus,
+form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 8px #00ff88;
+}
+
+/* Botón */
+form button {
+    width: 100%;
+    padding: 10px;
+    background: #00ff88;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #00cc66;
+}
+
+/* Títulos */
+h2 {
+    text-align: center;
+    color: #00ff88;
+}
+
+/* ===== CONTACTO MÁS PEQUEÑO ===== */
+#contacto {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+#contacto form {
+    max-width: 300px;
+}
+</style>
+
 </head>
 <body>
-    <form id="registroForm">
-        <h3>Registro de Usuario</h3>
-        <input type="text" id="usuario" placeholder="Nombre de Usuario">
-        <input type="email" id="correo" placeholder="Correo electrónico">
-        <input type="password" id="password" placeholder="Contraseña">
-        <input type="password" id="c_password" placeholder="Confirmacion de Contraseña">
-        <button> <input type="submit">Registrarse</button>
-        <p id="mensaje"></p>    
+
+<script src="app.js"></script>
+
+<!-- ===== LOGIN + REGISTRO ===== -->
+<div class="formularios-flex">
+
+    <!-- REGISTRO -->
+    <div>
+        <h2>Registro</h2>
+        <form id="registroForm">
+            <input type="text" id="usuario" placeholder="Usuario">
+            <input type="email" id="email" placeholder="Correo">
+            <input type="password" id="password" placeholder="Contraseña">
+            <input type="password" id="confirmar" placeholder="Confirmar Contraseña">
+            <button type="submit">Registrarse</button>
+            <p id="mensajeRegistro"></p>
+        </form>
+    </div>
+
+    <!-- LOGIN -->
+    <div>
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="email" id="loginEmail" placeholder="Correo">
+            <input type="password" id="loginPassword" placeholder="Contraseña">
+            <button type="submit">Ingresar</button>
+            <p id="mensajeLogin"></p>
+        </form>
+    </div>
+
+</div>
+
+
+<!-- ===== CONTACTO ===== -->
+<section id="contacto">
+    <form>
+        <h2>Contacto</h2>
+
+        <input type="text" placeholder="Nombre" required>
+        <input type="email" placeholder="Correo" required>
+        <textarea placeholder="Mensaje" rows="4" required></textarea>
+
+        <button type="submit">Enviar</button>
     </form>
-    <script src="app.js"></script>
+</section>
+
 </body>
+
+<script src="app.js"></script>
 </html>
 

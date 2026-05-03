@@ -10,84 +10,95 @@
          --primary: color principal de botones/elementos
          --primary-contrast: color del texto sobre el botón primario
 */
+
+/* Activa desplazamiento suave en toda la página */
 html {
     scroll-behavior: smooth;
 }
 
+/* Variables globales de colores y tamaños */
 :root {
-        --bg: #ffffff;
-        --text: #111827;
-        --primary: #0056b3;
-        --primary-contrast: #ffffff;
-        --nav-height: 80px;
-        --nav-bg: rgba(255,255,255,0.95);
+    --bg: #ffffff; /* color de fondo principal */
+    --text: #111827; /* color de texto principal */
+    --primary: #0056b3; /* color principal (botones, etc.) */
+    --primary-contrast: #ffffff; /* texto sobre el color principal */
+    --nav-height: 80px; /* altura inicial del navbar */
+    --nav-bg: rgba(255,255,255,0.95); /* fondo del navbar */
 }
 
+/* Estilos generales del body */
 body{
-        font-family: Arial, Helvetica, sans-serif;
-        height: 100%;
-        width: 100vw;
-        display: center ;
-        justify-content: center;
-        align-items: center;
-        background-image: url("../images/fondo.jpg");
-        background-attachment: fixed;
-        scroll-behavior: smooth;
-        background-position: center;
-        color: black;
-        background-size: cover;
-        border: center;
+    font-family: Arial, Helvetica, sans-serif; /* tipografía */
+    height: 100%; /* altura completa */
+    width: 100vw; /* ancho completo */
+    display: center ; /* (no válido, pero no se modifica) */
+    justify-content: center; /* centrado horizontal */
+    align-items: center; /* centrado vertical */
+    background-image: url("../images/fondo.jpg"); /* imagen de fondo */
+    background-attachment: fixed; /* fondo fijo al hacer scroll */
+    scroll-behavior: smooth; /* scroll suave */
+    background-position: center; /* centra la imagen */
+    color: black; /* color del texto */
+    background-size: cover; /* cubre toda la pantalla */
+    border: center; /* (no válido, pero no se modifica) */
 }
 
+/* Encabezado principal */
 header{
     position: relative;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 20px;
-    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8); /* fondo oscuro semi-transparente */
+    color: white; /* texto blanco */
+    padding: 20px; /* espacio interno */
+    text-align: center; /* centra texto */
     align-items: center;
     border: center;
-    max-width: 1200px;
-    margin:0 auto;
+    max-width: 1200px; /* ancho máximo */
+    margin:0 auto; /* centrado */
 }
 
+/* Contenedor del logo */
 .logo {
     position: relative;
     display: block;
     padding: 6px 0;
 }
+
+/* Título dentro del logo */
 .logo h1 {
     margin: 0;
 }
+
+/* Imagen del logo */
 .logo-img {
     position: absolute;
-    left: 20px;
-    top: 50%;
+    left: 20px; /* posición izquierda */
+    top: 50%; /* centrado vertical */
     transform: translateY(-50%);
-    width: 120px;
+    width: 120px; /* tamaño */
     height: auto;
     display: block;
     margin: 0;
 }
 
-
+/* Barra de navegación */
 nav {
-    position: sticky;
+    position: sticky; /* se queda fija al hacer scroll */
     top: 0;
-    z-index: 1000;
+    z-index: 1000; /* encima de otros elementos */
     background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* sombra */
 }
 
+/* Lista del menú */
 nav ul {
     font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; /* distribución horizontal */
+    justify-content: space-between; /* separación */
+    align-items: center; /* centrado vertical */
     padding: 1rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    list-style: none;
+    list-style: none; /* sin viñetas */
     text-decoration: none;
     background-color: transparent;
     padding: 20px;
@@ -95,42 +106,47 @@ nav ul {
     border-radius: 0;
     width: 85%;
 }
+
+/* Contenedor general */
 .container {
     max-width: 800px;
     margin: 0 auto;
 }
 
+/* Links del menú */
 nav ul li a {
     color: black;
-    text-decoration: none;
+    text-decoration: none; /* sin subrayado */
     font-size: 1.2rem;
     font-weight: bold;
     padding: 0.5rem 1rem;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; /* animación */
 }
 
-
-
+/* Secciones */
 section {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.8); /* fondo claro */
     padding: 20px;
     margin: 20px auto;
-    border-radius: 15px;;
+    border-radius: 15px;
     width: 85%;
 }
+
+/* Contenedor repetido */
 .container {
     max-width: 800px;
     margin: 0 auto;
 }
 
+/* Contenedor de imágenes de consejos */
 .imagenes-consejos {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin: 0 auto 20px;
-
 }
 
+/* Imágenes de consejos */
 .consejo-img {
     width: 35%;
     height: auto;
@@ -139,22 +155,23 @@ section {
     margin: 10px auto 20px;
 }
 
+/* Contenedor de mapas */
 .imagenes-mapas {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin: 0 auto 20px;
-
 }
 
+/* Contenedor de objetos */
 .imagenes-objetos {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin: 0 auto 20px;
-
 }
 
+/* Imagen de objeto */
 .objeto-img {
     width: 15%;
     height: auto;
@@ -163,7 +180,7 @@ section {
     margin: 10px auto;
 }
 
-
+/* Imagen de mapa */
 .mapa-img {
     width: 50%;
     height: auto;
@@ -172,14 +189,14 @@ section {
     margin: 15px auto 20px;
 }
 
-
-
+/* Imagen dentro de tarjeta */
 .card img {
     width: 30%; 
     height: auto; 
     border-radius: 10px; 
 } 
 
+/* Tarjetas */
 .card { 
     background-color: rgba(255, 255, 255, 0.8); 
     padding: 15px; 
@@ -188,12 +205,14 @@ section {
     width: 85%;
 }
 
+/* Contenido interno de tarjeta */
 .card-content {
     display: flex;
     align-items: center;
     margin: 10px 0;
 }
 
+/* Botones dentro de tarjeta */
 .card-buttons {
     display: flex;
     flex-wrap: nowrap;
@@ -201,6 +220,7 @@ section {
     margin-left: 10px;
 }
 
+/* Botón general */
 .button { 
     background-color: #4CAF50; 
     color: black; 
@@ -211,6 +231,7 @@ section {
     font-size: 16px; 
 }
 
+/* Botón de ataque */
 .attack-button {
     background-color: #e74c3c;
     color: black;
@@ -221,6 +242,7 @@ section {
     border-radius: 5px;
 }
 
+/* Botón de set */
 .set-button {
     background-color: #3498db;
     color: black;
@@ -228,55 +250,131 @@ section {
     justify-content: center;
 }
 
+/* Hover de botón */
 .button:hover { 
     background-color: #45a049; 
 }
 
+/* Navbar con altura dinámica */
 nav {
   height: var(--nav-height);
   transition: height 0.3s ease, background-color 0.3s ease;
 }
 
+/* Navbar al hacer scroll */
 nav.scrolled {
-  --nav-height: 60px;
+  --nav-height: 60px; /* reduce altura */
   --nav-bg: rgba(255,255,255,0.98);
   background-color: var(--nav-bg);
   justify-content: center;
   align-items: center;
 }
 
-
+/* Footer */
 .footer {
     background-color: rgba(255, 255, 255, 0.9);
-    color: #222; /* texto oscuro */
+    color: #222;
     text-align: center;
     padding: 30px 20px;
     margin-top: 50px;
     border-top: 3px solid #4CAF50;
 }
 
+/* Contenedor del footer */
 .footer-container {
     max-width: 900px;
     margin: 0 auto;
-    display: flex;           
+    display: flex;
     justify-content: space-between;
-    align-items: center;     
-    flex-wrap: wrap;         
+    align-items: center;
+    flex-wrap: wrap;
 }
 
+/* Título footer */
 .footer h2 {
     font-size: 24px;
     margin-bottom: 15px;
-    color: #4CAF50; /* verde gamer */
+    color: #4CAF50;
 }
 
-
+/* Texto footer */
 .footer p {
     margin: 6px 0;
     font-size: 14px;
 }
 
+/* Hover texto footer */
 .footer p:hover {
     color: #4CAF50;
     transition: 0.3s;
+}
+
+/* ===== CONTENEDOR DE FORMULARIOS ===== */
+.formularios-flex {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* ===== FORMULARIOS ===== */
+form {
+    background: #0d0d0d;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #00ff88;
+    max-width: 350px;
+    width: 100%;
+}
+
+/* Inputs */
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #00ff88;
+    border-radius: 5px;
+    background: #000;
+    color: #00ff88;
+}
+
+/* Focus */
+form input:focus,
+form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 8px #00ff88;
+}
+
+/* Botón */
+form button {
+    width: 100%;
+    padding: 10px;
+    background: #00ff88;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #00cc66;
+}
+
+/* Títulos */
+h4 {
+    text-align: center;
+    color: #00ff88;
+}
+
+/* ===== CONTACTO MÁS PEQUEÑO ===== */
+#contacto {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+#contacto form {
+    max-width: 300px;
 }
