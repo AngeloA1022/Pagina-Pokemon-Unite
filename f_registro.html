@@ -5,11 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Formularios</title>
 
-
-
-
 <style>
-/* ===== ESTILO GENERAL ===== */
 body{
     font-family: Arial, sans-serif;
     background: #111;
@@ -18,7 +14,6 @@ body{
     padding: 20px;
 }
 
-/* ===== CONTENEDOR ===== */
 .formularios-flex {
     display: flex;
     gap: 30px;
@@ -26,7 +21,6 @@ body{
     justify-content: center;
 }
 
-/* ===== FORMULARIOS ===== */
 form {
     background: #0d0d0d;
     padding: 20px;
@@ -36,7 +30,6 @@ form {
     width: 100%;
 }
 
-/* Inputs */
 form input,
 form textarea {
     width: 100%;
@@ -48,14 +41,12 @@ form textarea {
     color: #00ff88;
 }
 
-/* Focus */
 form input:focus,
 form textarea:focus {
     outline: none;
     box-shadow: 0 0 8px #00ff88;
 }
 
-/* Botón */
 form button {
     width: 100%;
     padding: 10px;
@@ -71,30 +62,31 @@ form button:hover {
     background: #00cc66;
 }
 
-/* Títulos */
 h2 {
     text-align: center;
     color: #00ff88;
 }
 
-/* ===== CONTACTO MÁS PEQUEÑO ===== */
+/* VALIDACIONES VISUALES */
+.error {
+    border: 1px solid red !important;
+}
+
+.ok {
+    border: 1px solid #00ff88 !important;
+}
+
+/* CONTACTO */
 #contacto {
     margin-top: 50px;
     display: flex;
     justify-content: center;
-}
-
-#contacto form {
-    max-width: 300px;
 }
 </style>
 
 </head>
 <body>
 
-<script src="app.js"></script>
-
-<!-- ===== LOGIN + REGISTRO ===== -->
 <div class="formularios-flex">
 
     <!-- REGISTRO -->
@@ -123,22 +115,22 @@ h2 {
 
 </div>
 
-
-<!-- ===== CONTACTO ===== -->
+<!-- CONTACTO -->
 <section id="contacto">
-    <form>
+    <form id="contactoForm">
         <h2>Contacto</h2>
 
-        <input type="text" placeholder="Nombre" required>
-        <input type="email" placeholder="Correo" required>
-        <textarea placeholder="Mensaje" rows="4" required></textarea>
+        <input type="text" id="nombre" placeholder="Nombre">
+        <input type="text" id="asunto" placeholder="Asunto">
+        <textarea id="mensaje" rows="4" placeholder="Mensaje"></textarea>
+
+        <small>Caracteres: <span id="contador">0</span></small>
 
         <button type="submit">Enviar</button>
+        <p id="mensajeContacto"></p>
     </form>
 </section>
 
-</body>
-
 <script src="app.js"></script>
+</body>
 </html>
-

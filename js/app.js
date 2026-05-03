@@ -1,9 +1,5 @@
-// Esperar a que cargue el DOM
 document.addEventListener("DOMContentLoaded", () => {
 
-    // ==========================
-    // FUNCION MENSAJES
-    // ==========================
     function mostrarMensaje(elemento, mensaje, color) {
         elemento.textContent = mensaje;
         elemento.style.color = color;
@@ -16,134 +12,104 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // ==========================
-    // REGISTRO
-    // ==========================
+    // ================= REGISTRO =================
     const registroForm = document.getElementById('registroForm');
 
-    if (registroForm) {
-        registroForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+    registroForm.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-            const usuario = document.getElementById('usuario');
-            const email = document.getElementById('email');
-            const password = document.getElementById('password');
-            const confirmar = document.getElementById('confirmar');
-            const mensaje = document.getElementById('mensajeRegistro');
+        const usuario = document.getElementById('usuario');
+        const email = document.getElementById('email');
+        const password = document.getElementById('password');
+        const confirmar = document.getElementById('confirmar');
+        const mensaje = document.getElementById('mensajeRegistro');
 
-            if (!usuario.value.trim() || !email.value.trim() || !password.value || !confirmar.value) {
-                mostrarMensaje(mensaje, "Todos los campos son obligatorios", "red");
-                marcarCampo(usuario, "error");
-                marcarCampo(email, "error");
-                marcarCampo(password, "error");
-                marcarCampo(confirmar, "error");
-                return;
-            }
+        if (!usuario.value.trim() || !email.value.trim() || !password.value || !confirmar.value) {
+            mostrarMensaje(mensaje, "Todos los campos son obligatorios", "red");
+            return;
+        }
 
-            if (!regexEmail.test(email.value)) {
-                mostrarMensaje(mensaje, "Email no válido", "red");
-                marcarCampo(email, "error");
-                return;
-            } else {
-                marcarCampo(email, "ok");
-            }
+        if (!regexEmail.test(email.value)) {
+            mostrarMensaje(mensaje, "Email no válido", "red");
+            marcarCampo(email, "error");
+            return;
+        }
 
-            if (password.value.length < 8) {
-                mostrarMensaje(mensaje, "Mínimo 8 caracteres", "red");
-                marcarCampo(password, "error");
-                return;
-            } else {
-                marcarCampo(password, "ok");
-            }
+        if (password.value.length < 8) {
+            mostrarMensaje(mensaje, "Mínimo 8 caracteres", "red");
+            marcarCampo(password, "error");
+            return;
+        }
 
-            if (password.value !== confirmar.value) {
-                mostrarMensaje(mensaje, "Las contraseñas no coinciden", "red");
-                marcarCampo(confirmar, "error");
-                return;
-            } else {
-                marcarCampo(confirmar, "ok");
-            }
+        // 🔥 VALIDACIÓN QUE QUERÍAS
+        if (password.value !== confirmar.value) {
+            mostrarMensaje(mensaje, "❌ Las contraseñas no coinciden", "red");
+            marcarCampo(confirmar, "error");
+            return;
+        }
 
-            marcarCampo(usuario, "ok");
+        marcarCampo(usuario, "ok");
+        marcarCampo(email, "ok");
+        marcarCampo(password, "ok");
+        marcarCampo(confirmar, "ok");
 
-            mostrarMensaje(mensaje, "Registro exitoso ✅", "green");
-            registroForm.reset();
-        });
-    }
+        mostrarMensaje(mensaje, "Registro exitoso ✅", "green");
+        registroForm.reset();
+    });
 
-    // ==========================
-    // LOGIN
-    // ==========================
+    // ================= LOGIN =================
     const loginForm = document.getElementById('loginForm');
 
-    if (loginForm) {
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-            const email = document.getElementById('loginEmail');
-            const password = document.getElementById('loginPassword');
-            const mensaje = document.getElementById('mensajeLogin');
+        const email = document.getElementById('loginEmail');
+        const password = document.getElementById('loginPassword');
+        const mensaje = document.getElementById('mensajeLogin');
 
-            if (!email.value.trim() || !password.value) {
-                mostrarMensaje(mensaje, "Todos los campos son obligatorios", "red");
-                marcarCampo(email, "error");
-                marcarCampo(password, "error");
-                return;
-            }
+        if (!email.value.trim() || !password.value) {
+            mostrarMensaje(mensaje, "Todos los campos son obligatorios", "red");
+            return;
+        }
 
-            if (!regexEmail.test(email.value)) {
-                mostrarMensaje(mensaje, "Email no válido", "red");
-                marcarCampo(email, "error");
-                return;
-            } else {
-                marcarCampo(email, "ok");
-            }
+        if (!regexEmail.test(email.value)) {
+            mostrarMensaje(mensaje, "Email no válido", "red");
+            marcarCampo(email, "error");
+            return;
+        }
 
-            marcarCampo(password, "ok");
+        marcarCampo(email, "ok");
+        marcarCampo(password, "ok");
 
-            mostrarMensaje(mensaje, "Inicio de sesión exitoso ✅", "green");
-            loginForm.reset();
-        });
-    }
+        mostrarMensaje(mensaje, "Inicio de sesión exitoso ✅", "green");
+        loginForm.reset();
+    });
 
-    // ==========================
-    // CONTACTO
-    // ==========================
+    // ================= CONTACTO =================
     const contactoForm = document.getElementById('contactoForm');
+    const mensajeInput = document.getElementById('mensaje');
+    const contador = document.getElementById('contador');
 
-    if (contactoForm) {
-        const mensajeInput = document.getElementById('mensaje');
-        const contador = document.getElementById('contador');
+    mensajeInput.addEventListener('input', () => {
+        contador.textContent = mensajeInput.value.length;
+    });
 
-        // Contador
-        mensajeInput.addEventListener('input', function() {
-            contador.textContent = mensajeInput.value.length;
-        });
+    contactoForm.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-        contactoForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+        const nombre = document.getElementById('nombre');
+        const asunto = document.getElementById('asunto');
+        const mensajeTexto = mensajeInput.value.trim();
+        const mensaje = document.getElementById('mensajeContacto');
 
-            const nombre = document.getElementById('nombre');
-            const asunto = document.getElementById('asunto');
-            const mensajeTexto = mensajeInput.value.trim();
-            const mensaje = document.getElementById('mensajeContacto');
+        if (!nombre.value.trim() || !asunto.value.trim() || !mensajeTexto) {
+            mostrarMensaje(mensaje, "Todos los campos son obligatorios", "red");
+            return;
+        }
 
-            if (!nombre.value.trim() || !asunto.value.trim() || !mensajeTexto) {
-                mostrarMensaje(mensaje, "Todos los campos son obligatorios", "red");
-                marcarCampo(nombre, "error");
-                marcarCampo(asunto, "error");
-                marcarCampo(mensajeInput, "error");
-                return;
-            }
-
-            marcarCampo(nombre, "ok");
-            marcarCampo(asunto, "ok");
-            marcarCampo(mensajeInput, "ok");
-
-            mostrarMensaje(mensaje, "Mensaje enviado correctamente ✅", "green");
-            contactoForm.reset();
-            contador.textContent = "0";
-        });
-    }
+        mostrarMensaje(mensaje, "Mensaje enviado correctamente ✅", "green");
+        contactoForm.reset();
+        contador.textContent = "0";
+    });
 
 });
