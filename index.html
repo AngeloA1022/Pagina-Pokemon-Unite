@@ -11,37 +11,54 @@
 </head>
 <body>
 
-<!-- SECCIÓN FORMULARIOS -->
 <hr>
+
+<h2>Formularios</h2>
 
 <div class="formularios-flex">
 
+    <!-- ===================== -->
     <!-- REGISTRO -->
+    <!-- ===================== -->
     <div>
         <h4>Registro</h4>
         <form id="registroForm">
+
             <input type="text" id="usuario" placeholder="Usuario">
-            <input type="email" id="email" placeholder="Correo">
+
+            <input type="email" id="emailRegistro" placeholder="Correo">
+
             <input type="password" id="password" placeholder="Contraseña">
-            <input type="password" id="confirmar" placeholder="Confirmar Contraseña">
+
+            <input type="password" id="confirmPassword" placeholder="Confirmar Contraseña">
+
             <button type="submit">Registrarse</button>
+
             <p id="mensajeRegistro"></p>
+
         </form>
     </div>
 
+
+    <!-- ===================== -->
     <!-- LOGIN -->
+    <!-- ===================== -->
     <div>
         <h4>Login</h4>
         <form id="loginForm">
-            <input type="email" id="loginEmail" placeholder="Correo">
-            <input type="password" id="loginPassword" placeholder="Contraseña">
+
+            <input type="email" id="emailLogin" placeholder="Correo">
+
+            <input type="password" id="passwordLogin" placeholder="Contraseña">
+
             <button type="submit">Ingresar</button>
+
             <p id="mensajeLogin"></p>
+
         </form>
     </div>
 
 </div>
-
 
 
 
@@ -480,21 +497,32 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
     </div>
 </section>
 
-<section id="contacto-form" class="seccion">
-    <div class="container">
+<!-- ===================== -->
+<!-- CONTACTO -->
+<!-- ===================== -->
+<section id="contacto">
+
+    <div>
         <h4>Formulario de Contacto</h4>
 
         <form id="contactoForm">
+
             <input type="text" id="nombre" placeholder="Nombre">
+
             <input type="text" id="asunto" placeholder="Asunto">
+
             <textarea id="mensaje" placeholder="Mensaje" maxlength="200"></textarea>
 
-            <p>Caracteres: <span id="contador">0</span>/200</p>
+            <p id="contador">0 / 200</p>
 
             <button type="submit">Enviar</button>
+
             <p id="mensajeContacto"></p>
+
         </form>
+
     </div>
+
 </section>
 
 
@@ -549,5 +577,11 @@ function toggleInfo(id) {
     });
 }
 </script>
+
+<script src="js/validaciones.js"></script>
+<script src="js/registro.js"></script>
+<script src="js/login.js"></script>
+<script src="js/contacto.js"></script>
+
 </body>
 </html>
