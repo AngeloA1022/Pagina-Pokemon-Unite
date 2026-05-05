@@ -6,14 +6,8 @@
 <title>Formularios</title>
 
 <style>
-body{
-    font-family: Arial, sans-serif;
-    background: #111;
-    color: white;
-    margin: 0;
-    padding: 20px;
-}
 
+/* ===== CONTENEDOR DE FORMULARIOS ===== */
 .formularios-flex {
     display: flex;
     gap: 30px;
@@ -21,6 +15,8 @@ body{
     justify-content: center;
 }
 
+
+/* ===== FORMULARIOS ===== */
 form {
     background: #0d0d0d;
     padding: 20px;
@@ -30,6 +26,7 @@ form {
     width: 100%;
 }
 
+/* Inputs */
 form input,
 form textarea {
     width: 100%;
@@ -41,12 +38,14 @@ form textarea {
     color: #00ff88;
 }
 
+/* Focus */
 form input:focus,
 form textarea:focus {
     outline: none;
     box-shadow: 0 0 8px #00ff88;
 }
 
+/* Botón */
 form button {
     width: 100%;
     padding: 10px;
@@ -62,75 +61,108 @@ form button:hover {
     background: #00cc66;
 }
 
-h2 {
+/* Títulos */
+h4 {
     text-align: center;
     color: #00ff88;
 }
 
-/* VALIDACIONES VISUALES */
-.error {
-    border: 1px solid red !important;
-}
-
-.ok {
-    border: 1px solid #00ff88 !important;
-}
-
-/* CONTACTO */
+/* ===== CONTACTO MÁS PEQUEÑO ===== */
 #contacto {
     margin-top: 50px;
     display: flex;
     justify-content: center;
+}
+
+#contacto form {
+    max-width: 300px;
 }
 </style>
 
 </head>
 <body>
 
+<hr>
+
+<h2>Formularios</h2>
+
 <div class="formularios-flex">
 
+    <!-- ===================== -->
     <!-- REGISTRO -->
+    <!-- ===================== -->
     <div>
-        <h2>Registro</h2>
+        <h4>Registro</h4>
         <form id="registroForm">
+
             <input type="text" id="usuario" placeholder="Usuario">
-            <input type="email" id="email" placeholder="Correo">
+
+            <input type="email" id="emailRegistro" placeholder="Correo">
+
             <input type="password" id="password" placeholder="Contraseña">
-            <input type="password" id="confirmar" placeholder="Confirmar Contraseña">
+
+            <input type="password" id="confirmPassword" placeholder="Confirmar Contraseña">
+
             <button type="submit">Registrarse</button>
+
             <p id="mensajeRegistro"></p>
+
         </form>
     </div>
 
+
+    <!-- ===================== -->
     <!-- LOGIN -->
+    <!-- ===================== -->
     <div>
-        <h2>Login</h2>
+        <h4>Login</h4>
         <form id="loginForm">
-            <input type="email" id="loginEmail" placeholder="Correo">
-            <input type="password" id="loginPassword" placeholder="Contraseña">
+
+            <input type="email" id="emailLogin" placeholder="Correo">
+
+            <input type="password" id="passwordLogin" placeholder="Contraseña">
+
             <button type="submit">Ingresar</button>
+
             <p id="mensajeLogin"></p>
+
         </form>
     </div>
 
 </div>
 
+<!-- ===================== -->
 <!-- CONTACTO -->
+<!-- ===================== -->
 <section id="contacto">
-    <form id="contactoForm">
-        <h2>Contacto</h2>
 
-        <input type="text" id="nombre" placeholder="Nombre">
-        <input type="text" id="asunto" placeholder="Asunto">
-        <textarea id="mensaje" rows="4" placeholder="Mensaje"></textarea>
+    <div>
+        <h4>Formulario de Contacto</h4>
 
-        <small>Caracteres: <span id="contador">0</span></small>
+        <form id="contactoForm">
 
-        <button type="submit">Enviar</button>
-        <p id="mensajeContacto"></p>
-    </form>
+            <input type="text" id="nombre" placeholder="Nombre">
+
+            <input type="text" id="asunto" placeholder="Asunto">
+
+            <textarea id="mensaje" placeholder="Mensaje" maxlength="200"></textarea>
+
+            <p id="contador">0 / 200</p>
+
+            <button type="submit">Enviar</button>
+
+            <p id="mensajeContacto"></p>
+
+        </form>
+
+    </div>
+
 </section>
 
-<script src="app.js"></script>
+<script src="js/validaciones.js"></script>
+<script src="js/registro.js"></script>
+<script src="js/login.js"></script>
+<script src="js/contacto.js"></script>
+
 </body>
 </html>
