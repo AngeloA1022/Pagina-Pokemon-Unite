@@ -13,23 +13,22 @@
 
 <hr>
 
-<h2>Formularios</h2>
 
-<div class="formularios-flex">
+<!-- ===================== -->
+<!-- MODAL REGISTRO -->
+<!-- ===================== -->
+<div id="modalRegistro" class="modal">
+    <div class="modal-contenido">
 
-    <!-- ===================== -->
-    <!-- REGISTRO -->
-    <!-- ===================== -->
-    <div>
+        <span class="cerrar" onclick="cerrarModal('modalRegistro')">&times;</span>
+
         <h4>Registro</h4>
+
         <form id="registroForm">
 
             <input type="text" id="usuario" placeholder="Usuario">
-
             <input type="email" id="emailRegistro" placeholder="Correo">
-
             <input type="password" id="password" placeholder="Contraseña">
-
             <input type="password" id="confirmPassword" placeholder="Confirmar Contraseña">
 
             <button type="submit">Registrarse</button>
@@ -38,17 +37,21 @@
 
         </form>
     </div>
+</div>
 
+<!-- ===================== -->
+<!-- MODAL LOGIN -->
+<!-- ===================== -->
+<div id="modalLogin" class="modal">
+    <div class="modal-contenido">
 
-    <!-- ===================== -->
-    <!-- LOGIN -->
-    <!-- ===================== -->
-    <div>
+        <span class="cerrar" onclick="cerrarModal('modalLogin')">&times;</span>
+
         <h4>Login</h4>
+
         <form id="loginForm">
 
             <input type="email" id="emailLogin" placeholder="Correo">
-
             <input type="password" id="passwordLogin" placeholder="Contraseña">
 
             <button type="submit">Ingresar</button>
@@ -57,9 +60,7 @@
 
         </form>
     </div>
-
 </div>
-
 
 
 
@@ -84,17 +85,25 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
 </header>
 
 
-<!--Barra de navegacion-->
+<!-- Barra de navegación -->
 <nav>
     <ul>
+
         <li><a href="#">Inicio</a></li>
         <li><a href="#consejos">Consejos</a></li>
         <li><a href="#personajes">Personajes</a></li>
         <li><a href="#mapas">Mapas</a></li>
         <li><a href="#objetos">Objetos</a></li>
         <li><a href="#contacto">Contacto</a></li>
+
+        <!-- BOTONES MODAL -->
+        <li><button class="nav-btn" onclick="abrirModal('modalRegistro')">Registro</button></li>
+        <li><button class="nav-btn" onclick="abrirModal('modalLogin')">Login</button></li>
+
     </ul>
 </nav>
+
+
 <hr>
 <section id="inicio" class="Inicio">
     <div class="container">
@@ -577,6 +586,23 @@ function toggleInfo(id) {
         });
     });
 }
+
+function abrirModal(id) {
+    document.getElementById(id).style.display = "flex";
+}
+
+function cerrarModal(id) {
+    document.getElementById(id).style.display = "none";
+}
+
+window.onclick = function (event) {
+    if (event.target.classList.contains("modal")) {
+        event.target.style.display = "none";
+    }
+}
+
+
+
 </script>
 
 <script src="js/validaciones.js"></script>
