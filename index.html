@@ -103,11 +103,18 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
     </ul>
 </nav>
 
-<div class="carrusel" id="carruselEquilibrado">
-    <img id="imagenCarrusel">
-    <button onclick="anterior()">❮</button>
-    <button onclick="siguiente()">❯</button>
-</div>
+<section>
+    <h2>Carrusel</h2>
+
+    <div class="carrusel">
+        <img id="imagenCarrusel" src="img1.jpg">
+
+        <button onclick="anterior()">❮</button>
+        <button onclick="siguiente()">❯</button>
+    </div>
+
+    <div id="indicadores"></div>
+</section>
 
 
 
@@ -584,10 +591,11 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
 </footer>
 
 
+
+
+<!--Funciones Java--> 
+
 <script>
-// ==========================
-// FUNCIONES EXISTENTES (NO TOCAR)
-// ==========================
 function toggleDescription(button) {
     const card = button.closest('.card');
     const p = card.querySelector('p');
@@ -603,6 +611,7 @@ function toggleDescription(button) {
 function toggleInfo(id) {
     const el = document.getElementById(id);
     el.style.display = el.style.display === 'none' ? 'block' : 'none';
+    
 
     const radios = el.querySelectorAll('input[type="radio"]');
     radios.forEach(radio => {
@@ -628,180 +637,10 @@ window.onclick = function (event) {
     if (event.target.classList.contains("modal")) {
         event.target.style.display = "none";
     }
-};
-
-// ==========================
-// 🎯 SISTEMA DE CARRUSELES
-// ==========================
-
-function crearCarrusel(config) {
-
-    let indice = 0;
-    let intervalo;
-
-    function mostrar() {
-        const img = document.getElementById(config.img);
-        const titulo = document.getElementById(config.titulo);
-        const desc = document.getElementById(config.descripcion);
-
-        if (!img) return;
-
-        img.style.opacity = 0;
-
-        setTimeout(() => {
-            img.src = config.datos[indice].imagen;
-
-            if (titulo) titulo.textContent = config.datos[indice].nombre;
-            if (desc) desc.textContent = config.datos[indice].descripcion;
-
-            img.style.opacity = 1;
-            actualizarIndicadores();
-        }, 200);
-    }
-
-    function siguiente() {
-        indice = (indice + 1) % config.datos.length;
-        mostrar();
-    }
-
-    function anterior() {
-        indice = (indice - 1 + config.datos.length) % config.datos.length;
-        mostrar();
-    }
-
-    function crearIndicadores() {
-        const cont = document.getElementById(config.indicadores);
-        if (!cont) return;
-
-        cont.innerHTML = "";
-
-        config.datos.forEach((_, i) => {
-            const punto = document.createElement("span");
-            punto.classList.add("punto");
-
-            punto.onclick = () => {
-                indice = i;
-                mostrar();
-            };
-
-            cont.appendChild(punto);
-        });
-
-        actualizarIndicadores();
-    }
-
-    function actualizarIndicadores() {
-        const puntos = document.querySelectorAll(`#${config.indicadores} .punto`);
-        puntos.forEach((p, i) => {
-            p.classList.toggle("activo", i === indice);
-        });
-    }
-
-    function iniciar() {
-        intervalo = setInterval(siguiente, 4000);
-    }
-
-    function detener() {
-        clearInterval(intervalo);
-    }
-
-    // BOTONES
-    window[config.next] = siguiente;
-    window[config.prev] = anterior;
-
-    // INIT
-    crearIndicadores();
-    mostrar();
-    iniciar();
-
-    const contenedor = document.getElementById(config.contenedor);
-    if (contenedor) {
-        contenedor.addEventListener("mouseenter", detener);
-        contenedor.addEventListener("mouseleave", iniciar);
-    }
 }
 
 
-// ==========================
-// 🚀 INICIO GENERAL
-// ==========================
-window.addEventListener("load", () => {
 
-    // 🔵 EQUILIBRADO
-    crearCarrusel({
-        contenedor: "carruselEquilibrado",
-        img: "imagenCarrusel",
-        titulo: "tituloClase",
-        descripcion: "descripcionClase",
-        indicadores: "indicadores",
-        next: "siguiente",
-        prev: "anterior",
-        datos: [
-            {
-                nombre: "Charizard",
-                imagen: "images/charizard.png",
-                descripcion: "Equilibrado con buen ataque y movilidad."
-            },
-            {
-                nombre: "Urshifu",
-                imagen: "images/urshifu.png",
-                descripcion: "Fuerte en combate cercano."
-            },
-            {
-                nombre: "Aegislash",
-                imagen: "images/aegislash.png",
-                descripcion: "Alterna ataque y defensa."
-            }
-        ]
-    });
-
-    // 🔥 ATACANTE
-    crearCarrusel({
-        contenedor: "carruselAtacante",
-        img: "imagenCarruselAtacante",
-        titulo: "tituloAtacante",
-        descripcion: "descripcionAtacante",
-        indicadores: "indicadoresAtacante",
-        next: "siguienteAtacante",
-        prev: "anteriorAtacante",
-        datos: [
-            {
-                nombre: "Pikachu",
-                imagen: "images/pikachu.jpg",
-                descripcion: "Ataque rápido eléctrico."
-            },
-            {
-                nombre: "Cinderace",
-                imagen: "images/cinderace.jpg",
-                descripcion: "Gran daño a distancia."
-            }
-        ]
-    });
-
-    // 🛡️ DEFENSIVO
-    crearCarrusel({
-        contenedor: "carruselDefensivo",
-        img: "imagenCarruselDefensivo",
-        titulo: "tituloDefensivo",
-        descripcion: "descripcionDefensivo",
-        indicadores: "indicadoresDefensivo",
-        next: "siguienteDefensivo",
-        prev: "anteriorDefensivo",
-        datos: [
-            {
-                nombre: "Snorlax",
-                imagen: "images/snorlax.jpg",
-                descripcion: "Alta resistencia."
-            },
-            {
-                nombre: "Blastoise",
-                imagen: "images/blastoise.jpg",
-                descripcion: "Defensa y control."
-            }
-        ]
-    });
-
-});
 </script>
 
 <script src="js/validaciones.js"></script>
