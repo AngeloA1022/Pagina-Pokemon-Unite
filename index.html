@@ -103,19 +103,41 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
     </ul>
 </nav>
 
+<!-- ⚖️ EQUILIBRADO -->
 <section>
-    <h2>Carrusel</h2>
-
+    <h2>Equilibrados</h2>
     <div class="carrusel">
-        <img id="imagenCarrusel" src="img1.jpg">
-
-        <button onclick="anterior()">❮</button>
-        <button onclick="siguiente()">❯</button>
+        <img id="imgEq">
+        <button onclick="prevEq()">❮</button>
+        <button onclick="nextEq()">❯</button>
     </div>
-
-    <div id="indicadores"></div>
+    <h3 id="tituloEq"></h3>
+    <p id="descEq"></p>
 </section>
 
+<!-- ⚔️ OFENSIVOS -->
+<section>
+    <h2>Ofensivos</h2>
+    <div class="carrusel">
+        <img id="imgOf">
+        <button onclick="prevOf()">❮</button>
+        <button onclick="nextOf()">❯</button>
+    </div>
+    <h3 id="tituloOf"></h3>
+    <p id="descOf"></p>
+</section>
+
+<!-- 🛡️ DEFENSIVOS -->
+<section>
+    <h2>Defensivos</h2>
+    <div class="carrusel">
+        <img id="imgDef">
+        <button onclick="prevDef()">❮</button>
+        <button onclick="nextDef()">❯</button>
+    </div>
+    <h3 id="tituloDef"></h3>
+    <p id="descDef"></p>
+</section>
 
 
 
