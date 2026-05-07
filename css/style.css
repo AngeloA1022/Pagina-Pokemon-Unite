@@ -547,9 +547,10 @@ button:hover {
     margin-top: 10px;
     font-weight: bold;
 }
+
 .carrusel {
     position: relative;
-    width: 400px;
+    width: 300px;
     margin: auto;
     text-align: center;
 }
@@ -557,40 +558,31 @@ button:hover {
 .carrusel img {
     width: 100%;
     border-radius: 10px;
-    transition: opacity 0.4s ease;
 }
 
-/* Botones */
-.btn {
+.carrusel button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
+    background: black;
     color: white;
     border: none;
     padding: 10px;
     cursor: pointer;
-    font-size: 20px;
-    border-radius: 5px;
 }
 
-.prev {
-    left: 10px;
+.carrusel button:first-of-type {
+    left: 0;
 }
 
-.next {
-    right: 10px;
-}
-
-/* Indicadores */
-#indicadores {
-    margin-top: 10px;
+.carrusel button:last-of-type {
+    right: 0;
 }
 
 .punto {
     display: inline-block;
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     background: gray;
     margin: 5px;
     border-radius: 50%;
