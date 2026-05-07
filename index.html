@@ -615,9 +615,10 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
 
 
 
-<!--Funciones Java--> 
-
 <script>
+// ==========================
+// FUNCIONES QUE YA TENÍAS
+// ==========================
 function toggleDescription(button) {
     const card = button.closest('.card');
     const p = card.querySelector('p');
@@ -634,7 +635,6 @@ function toggleInfo(id) {
     const el = document.getElementById(id);
     el.style.display = el.style.display === 'none' ? 'block' : 'none';
     
-
     const radios = el.querySelectorAll('input[type="radio"]');
     radios.forEach(radio => {
         radio.addEventListener('change', function() {
@@ -659,10 +659,71 @@ window.onclick = function (event) {
     if (event.target.classList.contains("modal")) {
         event.target.style.display = "none";
     }
+};
+
+// ==========================
+// 🎯 CARRUSELES POKEMON
+// ==========================
+
+// ⚖️ EQUILIBRADOS
+let eq = [
+    {nombre:"Charizard", img:"images/charizard.png", desc:"Buen ataque y movilidad"},
+    {nombre:"Urshifu", img:"images/urshifu.png", desc:"Fuerte en combate"},
+    {nombre:"Aegislash", img:"images/aegislash.png", desc:"Equilibrio total"}
+];
+let iEq = 0;
+
+function mostrarEq(){
+    document.getElementById("imgEq").src = eq[iEq].img;
+    document.getElementById("tituloEq").textContent = eq[iEq].nombre;
+    document.getElementById("descEq").textContent = eq[iEq].desc;
 }
+function nextEq(){ iEq = (iEq+1)%eq.length; mostrarEq(); }
+function prevEq(){ iEq = (iEq-1+eq.length)%eq.length; mostrarEq(); }
 
 
+// ⚔️ OFENSIVOS
+let of = [
+    {nombre:"Pikachu", img:"images/pikachu.jpg", desc:"Ataque eléctrico rápido"},
+    {nombre:"Cinderace", img:"images/cinderace.jpg", desc:"Alto daño"},
+    {nombre:"Greninja", img:"images/greninja.jpg", desc:"Muy veloz"}
+];
+let iOf = 0;
 
+function mostrarOf(){
+    document.getElementById("imgOf").src = of[iOf].img;
+    document.getElementById("tituloOf").textContent = of[iOf].nombre;
+    document.getElementById("descOf").textContent = of[iOf].desc;
+}
+function nextOf(){ iOf = (iOf+1)%of.length; mostrarOf(); }
+function prevOf(){ iOf = (iOf-1+of.length)%of.length; mostrarOf(); }
+
+
+// 🛡️ DEFENSIVOS
+let def = [
+    {nombre:"Snorlax", img:"images/snorlax.jpg", desc:"Gran resistencia"},
+    {nombre:"Blastoise", img:"images/blastoise.jpg", desc:"Defensa fuerte"},
+    {nombre:"Slowbro", img:"images/slowbro.jpg", desc:"Control total"}
+];
+let iDef = 0;
+
+function mostrarDef(){
+    document.getElementById("imgDef").src = def[iDef].img;
+    document.getElementById("tituloDef").textContent = def[iDef].nombre;
+    document.getElementById("descDef").textContent = def[iDef].desc;
+}
+function nextDef(){ iDef = (iDef+1)%def.length; mostrarDef(); }
+function prevDef(){ iDef = (iDef-1+def.length)%def.length; mostrarDef(); }
+
+
+// ==========================
+// 🚀 INICIO
+// ==========================
+window.addEventListener("load", () => {
+    mostrarEq();
+    mostrarOf();
+    mostrarDef();
+});
 </script>
 
 <script src="js/validaciones.js"></script>
