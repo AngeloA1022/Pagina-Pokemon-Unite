@@ -628,6 +628,7 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
 function toggleDescription(button) {
     const card = button.closest('.card');
     const p = card.querySelector('p');
+
     if (p.style.display === 'none') {
         p.style.display = 'block';
         button.textContent = 'Ocultar descripción';
@@ -640,12 +641,14 @@ function toggleDescription(button) {
 function toggleInfo(id) {
     const el = document.getElementById(id);
     el.style.display = el.style.display === 'none' ? 'block' : 'none';
-    
+
     const radios = el.querySelectorAll('input[type="radio"]');
+
     radios.forEach(radio => {
-        radio.addEventListener('change', function() {
+        radio.addEventListener('change', function () {
             const selectedId = id + '-selected';
             const selectedElement = document.getElementById(selectedId);
+
             if (selectedElement) {
                 selectedElement.textContent = 'Seleccionado: ' + this.value;
             }
@@ -674,11 +677,11 @@ let eqIndex = 0;
 let ofIndex = 0;
 let defIndex = 0;
 
-// DATA
+// DATA (IMPORTANTE: completado correctamente)
 let eq = [
-    { nombre:"Charizard", img:"images/charizard.png", desc:"Equilibrado y potente" },
-    { nombre:"Urshifu", img:"images/urshifu.png", desc:"Fuerte cuerpo a cuerpo" },
-    { nombre:"Aegislash", img:"images/aegislash.png", desc:"Defensa y ataque" }
+    { nombre:"Charizard", img:"images/charizard.png", desc:"Equilibrado poderoso" },
+    { nombre:"Urshifu", img:"images/urshifu.png", desc:"Combate físico fuerte" },
+    { nombre:"Aegislash", img:"images/aegislash.png", desc:"Ataque y defensa" }
 ];
 
 let of = [
@@ -692,14 +695,25 @@ let def = [
     { nombre:"Goodra", img:"images/goodra.png", desc:"Alta defensa" }
 ];
 
+// ==========================
 // INIT
+// ==========================
 window.addEventListener("load", () => {
     mostrareq();
     mostrarof();
     mostrardef();
+
+    iniciarAutoCarrusel();
+
+    // SWIPE
+    agregarSwipe("imgEq", prevEq, nextEq);
+    agregarSwipe("imgOf", prevOf, nextOf);
+    agregarSwipe("imgDef", prevDef, nextDef);
 });
 
-// EQUILIBRADOS
+// ==========================
+// CARRUSEL FUNCIONES
+// ==========================
 function mostrareq() {
     document.getElementById("imgEq").src = eq[eqIndex].img;
     document.getElementById("tituloEq").textContent = eq[eqIndex].nombre;
@@ -716,7 +730,6 @@ function nextEq() {
     mostrareq();
 }
 
-// OFENSIVOS
 function mostrarof() {
     document.getElementById("imgOf").src = of[ofIndex].img;
     document.getElementById("tituloOf").textContent = of[ofIndex].nombre;
@@ -733,7 +746,6 @@ function nextOf() {
     mostrarof();
 }
 
-// DEFENSIVOS
 function mostrardef() {
     document.getElementById("imgDef").src = def[defIndex].img;
     document.getElementById("tituloDef").textContent = def[defIndex].nombre;
@@ -750,6 +762,48 @@ function nextDef() {
     mostrardef();
 }
 
+// ==========================
+// 🔥 AUTO CARRUSEL
+// ==========================
+let autoInterval;
+
+function iniciarAutoCarrusel() {
+    autoInterval = setInterval(() => {
+        nextEq();
+        nextOf();
+        nextDef();
+    }, 4000);
+}
+
+function detenerAutoCarrusel() {
+    clearInterval(autoInterval);
+}
+
+// ==========================
+// 📱 SWIPE TÁCTIL
+// ==========================
+function agregarSwipe(id, prevFn, nextFn) {
+    const el = document.getElementById(id);
+
+    let startX = 0;
+
+    el.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+        detenerAutoCarrusel();
+    });
+
+    el.addEventListener("touchend", (e) => {
+        let endX = e.changedTouches[0].clientX;
+        let diff = startX - endX;
+
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) nextFn();
+            else prevFn();
+        }
+
+        iniciarAutoCarrusel();
+    });
+}
 </script>
 
 <script src="js/validaciones.js"></script>
