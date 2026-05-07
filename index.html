@@ -591,7 +591,6 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
 </footer>
 
 
-
 <script>
 // ==========================
 // FUNCIONES EXISTENTES
@@ -639,55 +638,86 @@ window.onclick = function (event) {
 };
 
 // ==========================
-// 🎯 CARRUSEL MEJORADO
+// 🎯 CARRUSEL CORREGIDO
 // ==========================
-let imagenes = ["img1.jpg", "img2.jpg", "img3.jpg"];
+let clases = [
+    {
+        nombre: "Equilibrado",
+        imagen: "images/equilibrado.jpg",
+        descripcion: "Pokémon balanceados con buen ataque y defensa. Ideales para cualquier situación."
+    },
+    {
+        nombre: "Atacante",
+        imagen: "images/atacante.jpg",
+        descripcion: "Alto daño pero baja defensa. Perfectos para eliminar enemigos rápidamente."
+    },
+    {
+        nombre: "Defensivo",
+        imagen: "images/defensivo.jpg",
+        descripcion: "Gran resistencia. Protegen al equipo y absorben daño."
+    }
+];
+
 let indice = 0;
 let intervalo;
 
-// Mostrar imagen
+// ==========================
+// MOSTRAR
+// ==========================
 function mostrarImagen() {
     const img = document.getElementById("imagenCarrusel");
+    const titulo = document.getElementById("tituloClase");
+    const descripcion = document.getElementById("descripcionClase");
 
-    if (!img) return; // evita errores si no existe en la página
+    if (!img) return;
 
     img.style.opacity = 0;
 
     setTimeout(() => {
-        img.src = imagenes[indice];
+        img.src = clases[indice].imagen;
+
+        if (titulo) titulo.textContent = clases[indice].nombre;
+        if (descripcion) descripcion.textContent = clases[indice].descripcion;
+
         img.style.opacity = 1;
         actualizarIndicadores();
     }, 200);
 }
 
-// Botones
+// ==========================
+// BOTONES
+// ==========================
 function siguiente() {
-    indice = (indice + 1) % imagenes.length;
+    indice = (indice + 1) % clases.length;
     mostrarImagen();
 }
 
 function anterior() {
-    indice = (indice - 1 + imagenes.length) % imagenes.length;
+    indice = (indice - 1 + clases.length) % clases.length;
     mostrarImagen();
 }
 
-// Auto play
+// ==========================
+// AUTO PLAY
+// ==========================
 function iniciarCarrusel() {
-    intervalo = setInterval(siguiente, 3000);
+    intervalo = setInterval(siguiente, 4000);
 }
 
 function detenerCarrusel() {
     clearInterval(intervalo);
 }
 
-// Indicadores
+// ==========================
+// INDICADORES
+// ==========================
 function crearIndicadores() {
     const contenedor = document.getElementById("indicadores");
     if (!contenedor) return;
 
     contenedor.innerHTML = "";
 
-    imagenes.forEach((_, i) => {
+    clases.forEach((_, i) => {
         const punto = document.createElement("span");
         punto.classList.add("punto");
 
@@ -715,9 +745,9 @@ function actualizarIndicadores() {
 // ==========================
 window.addEventListener("load", () => {
 
-    // Inicializar carrusel SOLO si existe
     if (document.getElementById("imagenCarrusel")) {
         crearIndicadores();
+        mostrarImagen(); // 🔥 ARREGLO IMPORTANTE
         iniciarCarrusel();
 
         const carrusel = document.querySelector(".carrusel");
