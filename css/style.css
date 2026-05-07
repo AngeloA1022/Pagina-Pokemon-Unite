@@ -548,47 +548,70 @@ button:hover {
     font-weight: bold;
 }
 
+/* ===================== */
+/* CARRUSEL MEJORADO PRO */
+/* ===================== */
 .carrusel {
     position: relative;
     width: 300px;
     margin: auto;
     text-align: center;
+    overflow: hidden;
+    border-radius: 12px;
 }
 
+/* imagen con efecto suave */
 .carrusel img {
     width: 100%;
-    border-radius: 10px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 12px;
+
+    opacity: 1;
+    transform: scale(1);
+
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
+/* efecto visual cuando cambia (lo activa JS si quieres luego) */
+.carrusel img.fade {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+/* botones más modernos */
 .carrusel button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: black;
+
+    background: rgba(0,0,0,0.55);
     color: white;
+
     border: none;
-    padding: 10px;
+    padding: 10px 14px;
+
     cursor: pointer;
-}
+    font-size: 18px;
 
-.carrusel button:first-of-type {
-    left: 0;
-}
-
-.carrusel button:last-of-type {
-    right: 0;
-}
-
-.punto {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background: gray;
-    margin: 5px;
     border-radius: 50%;
-    cursor: pointer;
+
+    transition: 0.3s ease;
+    backdrop-filter: blur(4px);
 }
 
-.punto.activo {
-    background: black;
+/* hover pro */
+.carrusel button:hover {
+    background: rgba(0,0,0,0.85);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* izquierda */
+.carrusel button:first-of-type {
+    left: 8px;
+}
+
+/* derecha */
+.carrusel button:last-of-type {
+    right: 8px;
 }
