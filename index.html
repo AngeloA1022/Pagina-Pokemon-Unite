@@ -103,42 +103,48 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
     </ul>
 </nav>
 
-<!-- ⚖️ EQUILIBRADO -->
+<!-- ===================== -->
+<!-- CARRUSELES -->
+<!-- ===================== -->
+
 <section>
     <h2>Equilibrados</h2>
+
     <div class="carrusel">
         <img id="imgEq">
         <button onclick="prevEq()">❮</button>
         <button onclick="nextEq()">❯</button>
     </div>
+
     <h3 id="tituloEq"></h3>
     <p id="descEq"></p>
 </section>
 
-<!-- ⚔️ OFENSIVOS -->
 <section>
     <h2>Ofensivos</h2>
+
     <div class="carrusel">
         <img id="imgOf">
         <button onclick="prevOf()">❮</button>
         <button onclick="nextOf()">❯</button>
     </div>
+
     <h3 id="tituloOf"></h3>
     <p id="descOf"></p>
 </section>
 
-<!-- 🛡️ DEFENSIVOS -->
 <section>
     <h2>Defensivos</h2>
+
     <div class="carrusel">
         <img id="imgDef">
         <button onclick="prevDef()">❮</button>
         <button onclick="nextDef()">❯</button>
     </div>
+
     <h3 id="tituloDef"></h3>
     <p id="descDef"></p>
 </section>
-
 
 
 <hr>
@@ -662,68 +668,88 @@ window.onclick = function (event) {
 };
 
 // ==========================
-// 🎯 CARRUSELES POKEMON
+// CARRUSELES
 // ==========================
+let eqIndex = 0;
+let ofIndex = 0;
+let defIndex = 0;
 
-// ⚖️ EQUILIBRADOS
+// DATA
 let eq = [
-    {nombre:"Charizard", img:"images/charizard.png", desc:"Buen ataque y movilidad"},
-    {nombre:"Urshifu", img:"images/urshifu.png", desc:"Fuerte en combate"},
-    {nombre:"Aegislash", img:"images/aegislash.png", desc:"Equilibrio total"}
+    { nombre:"Charizard", img:"images/charizard.png", desc:"Equilibrado y potente" },
+    { nombre:"Urshifu", img:"images/urshifu.png", desc:"Fuerte cuerpo a cuerpo" },
+    { nombre:"Aegislash", img:"images/aegislash.png", desc:"Defensa y ataque" }
 ];
-let iEq = 0;
 
-function mostrarEq(){
-    document.getElementById("imgEq").src = eq[iEq].img;
-    document.getElementById("tituloEq").textContent = eq[iEq].nombre;
-    document.getElementById("descEq").textContent = eq[iEq].desc;
-}
-function nextEq(){ iEq = (iEq+1)%eq.length; mostrarEq(); }
-function prevEq(){ iEq = (iEq-1+eq.length)%eq.length; mostrarEq(); }
-
-
-// ⚔️ OFENSIVOS
 let of = [
-    {nombre:"Pikachu", img:"images/pikachu.jpg", desc:"Ataque eléctrico rápido"},
-    {nombre:"Cinderace", img:"images/cinderace.jpg", desc:"Alto daño"},
-    {nombre:"Greninja", img:"images/greninja.jpg", desc:"Muy veloz"}
+    { nombre:"Pikachu", img:"images/pikachu.png", desc:"Eléctrico rápido" },
+    { nombre:"Cinderace", img:"images/cinderace.png", desc:"Daño a distancia" },
+    { nombre:"Greninja", img:"images/greninja.png", desc:"Muy veloz" }
 ];
-let iOf = 0;
 
-function mostrarOf(){
-    document.getElementById("imgOf").src = of[iOf].img;
-    document.getElementById("tituloOf").textContent = of[iOf].nombre;
-    document.getElementById("descOf").textContent = of[iOf].desc;
-}
-function nextOf(){ iOf = (iOf+1)%of.length; mostrarOf(); }
-function prevOf(){ iOf = (iOf-1+of.length)%of.length; mostrarOf(); }
-
-
-// 🛡️ DEFENSIVOS
 let def = [
-    {nombre:"Snorlax", img:"images/snorlax.jpg", desc:"Gran resistencia"},
-    {nombre:"Blastoise", img:"images/blastoise.jpg", desc:"Defensa fuerte"},
-    {nombre:"Slowbro", img:"images/slowbro.jpg", desc:"Control total"}
+    { nombre:"Blastoise", img:"images/blastoise.png", desc:"Tanque resistente" },
+    { nombre:"Goodra", img:"images/goodra.png", desc:"Alta defensa" }
 ];
-let iDef = 0;
 
-function mostrarDef(){
-    document.getElementById("imgDef").src = def[iDef].img;
-    document.getElementById("tituloDef").textContent = def[iDef].nombre;
-    document.getElementById("descDef").textContent = def[iDef].desc;
-}
-function nextDef(){ iDef = (iDef+1)%def.length; mostrarDef(); }
-function prevDef(){ iDef = (iDef-1+def.length)%def.length; mostrarDef(); }
-
-
-// ==========================
-// 🚀 INICIO
-// ==========================
+// INIT
 window.addEventListener("load", () => {
-    mostrarEq();
-    mostrarOf();
-    mostrarDef();
+    mostrareq();
+    mostrarof();
+    mostrardef();
 });
+
+// EQUILIBRADOS
+function mostrareq() {
+    document.getElementById("imgEq").src = eq[eqIndex].img;
+    document.getElementById("tituloEq").textContent = eq[eqIndex].nombre;
+    document.getElementById("descEq").textContent = eq[eqIndex].desc;
+}
+
+function prevEq() {
+    eqIndex = (eqIndex - 1 + eq.length) % eq.length;
+    mostrareq();
+}
+
+function nextEq() {
+    eqIndex = (eqIndex + 1) % eq.length;
+    mostrareq();
+}
+
+// OFENSIVOS
+function mostrarof() {
+    document.getElementById("imgOf").src = of[ofIndex].img;
+    document.getElementById("tituloOf").textContent = of[ofIndex].nombre;
+    document.getElementById("descOf").textContent = of[ofIndex].desc;
+}
+
+function prevOf() {
+    ofIndex = (ofIndex - 1 + of.length) % of.length;
+    mostrarof();
+}
+
+function nextOf() {
+    ofIndex = (ofIndex + 1) % of.length;
+    mostrarof();
+}
+
+// DEFENSIVOS
+function mostrardef() {
+    document.getElementById("imgDef").src = def[defIndex].img;
+    document.getElementById("tituloDef").textContent = def[defIndex].nombre;
+    document.getElementById("descDef").textContent = def[defIndex].desc;
+}
+
+function prevDef() {
+    defIndex = (defIndex - 1 + def.length) % def.length;
+    mostrardef();
+}
+
+function nextDef() {
+    defIndex = (defIndex + 1) % def.length;
+    mostrardef();
+}
+
 </script>
 
 <script src="js/validaciones.js"></script>
