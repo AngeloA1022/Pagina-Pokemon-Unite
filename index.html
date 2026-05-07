@@ -507,7 +507,10 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
     </div>
 </section>
 
-<<section id="contacto">
+<!-- ===================== -->
+<!-- SECCIÓN CONTACTO -->
+<!-- ===================== -->
+<section id="contacto">
 
     <!-- INFORMACIÓN -->
     <div class="info">
@@ -527,33 +530,19 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
     <!-- FORMULARIO -->
     <div class="formulario">
 
-        <h3>SUSCRÍBETE Y RECIBE NOVEDADES</h3>
+        <h3>CONTÁCTANOS</h3>
 
         <form id="contactoForm">
 
-            <!-- Nombre -->
             <label>Nombre Completo *</label>
             <input type="text" id="nombre" required>
 
-            <!-- Fecha -->
-            <label>Fecha de nacimiento *</label>
-            <div class="fecha">
-                <input type="number" placeholder="Día" min="1" max="31" required>
-                <input type="number" placeholder="Mes" min="1" max="12" required>
-                <input type="number" placeholder="Año" min="1900" max="2026" required>
-            </div>
+            <label>Asunto *</label>
+            <input type="text" id="asunto" required>
 
-            <!-- Email -->
-            <label>Email *</label>
-            <input type="email" required>
+            <label>Mensaje *</label>
+            <textarea id="mensaje" maxlength="200" required></textarea>
 
-            <!-- Checkbox -->
-            <div class="check">
-                <input type="checkbox" id="suscribir">
-                <label for="suscribir">Sí, quiero suscribirme</label>
-            </div>
-
-            <!-- Botón -->
             <button type="submit">Enviar</button>
 
             <p id="mensajeContacto"></p>
@@ -564,15 +553,19 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
 
 </section>
 
-<!--Seccion de Concacto--> 
-<footer id="contacto" class="footer">
+
+<!-- ===================== -->
+<!-- FOOTER (SEPARADO) -->
+<!-- ===================== -->
+<footer id="footer" class="footer">
     <div class="footer-container">
         <h2>Contacto</h2>
         <p><strong>Empresa:</strong> Pokémon Unite Guide</p>
         <p><strong>Autor:</strong> Doble AA</p>
         <p><strong>Correo:</strong> dobleaa@email.com</p>
         <p><strong>Institución:</strong> INACAP</p>
-        <p><strong>Informacion:</strong>
+        <p>
+            <strong>Información:</strong>
             <a href="https://unite.pokemon.com/es-es/" target="_blank">
                 Más información
             </a>
@@ -580,7 +573,6 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
         <p>© 2026 Todos los derechos reservados</p>
     </div>
 </footer>
-
 
 
 <!--Funciones Java--> 
