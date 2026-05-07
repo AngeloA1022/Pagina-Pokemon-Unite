@@ -476,7 +476,7 @@ h4 {
 /* INFO */
 .info {
     text-align: center;
-    color: #0b2c5a;
+    color: black;
     max-width: 300px;
 }
 
@@ -495,7 +495,7 @@ h4 {
 /* FORMULARIO */
 .formulario {
     max-width: 400px;
-    color: #0b2c5a;
+    color: #00ff88;
 }
 
 .formulario h3 {
@@ -532,13 +532,13 @@ button {
     margin-top: 20px;
     padding: 12px;
     border-radius: 25px;
-    border: 2px solid #0b2c5a;
+    border: 2px solid #00ff88;
     background: transparent;
     cursor: pointer;
 }
 
 button:hover {
-    background: #0b2c5a;
+    background: #00ff88;
     color: white;
 }
 
