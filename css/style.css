@@ -547,54 +547,56 @@ button:hover {
     margin-top: 10px;
     font-weight: bold;
 }
-
 .carrusel {
     position: relative;
-    width: 300px;
+    width: 400px;
     margin: auto;
+    text-align: center;
 }
 
 .carrusel img {
     width: 100%;
     border-radius: 10px;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.4s ease;
 }
 
-.carrusel button {
+/* Botones */
+.btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: black;
+    background: rgba(0,0,0,0.5);
     color: white;
     border: none;
-    padding: 8px;
+    padding: 10px;
     cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
 }
 
-.carrusel button:first-of-type {
-    left: 0;
+.prev {
+    left: 10px;
 }
 
-.carrusel button:last-of-type {
-    right: 0;
+.next {
+    right: 10px;
 }
 
-/* indicadores */
+/* Indicadores */
 #indicadores {
-    text-align: center;
     margin-top: 10px;
 }
 
 .punto {
     display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 5px;
+    width: 12px;
+    height: 12px;
     background: gray;
+    margin: 5px;
     border-radius: 50%;
     cursor: pointer;
 }
 
-.activo {
+.punto.activo {
     background: black;
 }
