@@ -507,24 +507,53 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
     </div>
 </section>
 
-<!-- ===================== -->
-<!-- CONTACTO -->
-<!-- ===================== -->
-<section id="contacto">
+<<section id="contacto">
 
-    <div>
-        <h4>Formulario de Contacto</h4>
+    <!-- INFORMACIÓN -->
+    <div class="info">
+        <h2>CONTACTO</h2>
+
+        <p><strong>Empresa DobleAA</strong></p>
+        <p>Av. Apoquindo 4501, Oficina 702</p>
+        <p>+56 2 2987 6543</p>
+        <p>Las Condes, Santiago, Chile</p>
+
+        <h3>HORARIOS</h3>
+        <p>LUNES - VIERNES: 08:30am - 06:00pm</p>
+        <p>SÁBADO: 09:00am - 01:30pm</p>
+        <p>DOMINGO: CERRADO</p>
+    </div>
+
+    <!-- FORMULARIO -->
+    <div class="formulario">
+
+        <h3>SUSCRÍBETE Y RECIBE NOVEDADES</h3>
 
         <form id="contactoForm">
 
-            <input type="text" id="nombre" placeholder="Nombre">
+            <!-- Nombre -->
+            <label>Nombre Completo *</label>
+            <input type="text" id="nombre" required>
 
-            <input type="text" id="asunto" placeholder="Asunto">
+            <!-- Fecha -->
+            <label>Fecha de nacimiento *</label>
+            <div class="fecha">
+                <input type="number" placeholder="Día" min="1" max="31" required>
+                <input type="number" placeholder="Mes" min="1" max="12" required>
+                <input type="number" placeholder="Año" min="1900" max="2026" required>
+            </div>
 
-            <textarea id="mensaje" placeholder="Mensaje" maxlength="200"></textarea>
+            <!-- Email -->
+            <label>Email *</label>
+            <input type="email" required>
 
-            <p id="contador">0 / 200</p>
+            <!-- Checkbox -->
+            <div class="check">
+                <input type="checkbox" id="suscribir">
+                <label for="suscribir">Sí, quiero suscribirme</label>
+            </div>
 
+            <!-- Botón -->
             <button type="submit">Enviar</button>
 
             <p id="mensajeContacto"></p>
@@ -534,7 +563,6 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
     </div>
 
 </section>
-
 
 <!--Seccion de Concacto--> 
 <footer id="contacto" class="footer">
