@@ -592,10 +592,10 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
 
 
 
-
-<!--Funciones Java--> 
-
 <script>
+// ==========================
+// FUNCIONES EXISTENTES
+// ==========================
 function toggleDescription(button) {
     const card = button.closest('.card');
     const p = card.querySelector('p');
@@ -611,7 +611,6 @@ function toggleDescription(button) {
 function toggleInfo(id) {
     const el = document.getElementById(id);
     el.style.display = el.style.display === 'none' ? 'block' : 'none';
-    
 
     const radios = el.querySelectorAll('input[type="radio"]');
     radios.forEach(radio => {
@@ -637,10 +636,99 @@ window.onclick = function (event) {
     if (event.target.classList.contains("modal")) {
         event.target.style.display = "none";
     }
+};
+
+// ==========================
+// 🎯 CARRUSEL MEJORADO
+// ==========================
+let imagenes = ["img1.jpg", "img2.jpg", "img3.jpg"];
+let indice = 0;
+let intervalo;
+
+// Mostrar imagen
+function mostrarImagen() {
+    const img = document.getElementById("imagenCarrusel");
+
+    if (!img) return; // evita errores si no existe en la página
+
+    img.style.opacity = 0;
+
+    setTimeout(() => {
+        img.src = imagenes[indice];
+        img.style.opacity = 1;
+        actualizarIndicadores();
+    }, 200);
 }
 
+// Botones
+function siguiente() {
+    indice = (indice + 1) % imagenes.length;
+    mostrarImagen();
+}
 
+function anterior() {
+    indice = (indice - 1 + imagenes.length) % imagenes.length;
+    mostrarImagen();
+}
 
+// Auto play
+function iniciarCarrusel() {
+    intervalo = setInterval(siguiente, 3000);
+}
+
+function detenerCarrusel() {
+    clearInterval(intervalo);
+}
+
+// Indicadores
+function crearIndicadores() {
+    const contenedor = document.getElementById("indicadores");
+    if (!contenedor) return;
+
+    contenedor.innerHTML = "";
+
+    imagenes.forEach((_, i) => {
+        const punto = document.createElement("span");
+        punto.classList.add("punto");
+
+        punto.onclick = () => {
+            indice = i;
+            mostrarImagen();
+        };
+
+        contenedor.appendChild(punto);
+    });
+
+    actualizarIndicadores();
+}
+
+function actualizarIndicadores() {
+    const puntos = document.querySelectorAll(".punto");
+
+    puntos.forEach((p, i) => {
+        p.classList.toggle("activo", i === indice);
+    });
+}
+
+// ==========================
+// 🚀 INICIO GENERAL
+// ==========================
+window.addEventListener("load", () => {
+
+    // Inicializar carrusel SOLO si existe
+    if (document.getElementById("imagenCarrusel")) {
+        crearIndicadores();
+        iniciarCarrusel();
+
+        const carrusel = document.querySelector(".carrusel");
+
+        if (carrusel) {
+            carrusel.addEventListener("mouseenter", detenerCarrusel);
+            carrusel.addEventListener("mouseleave", iniciarCarrusel);
+        }
+    }
+
+});
 </script>
 
 <script src="js/validaciones.js"></script>
