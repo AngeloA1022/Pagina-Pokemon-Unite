@@ -1,14 +1,17 @@
+// ==========================
+// VALIDACIONES GENERALES
+// ==========================
+
 function campoVacio(valor) {
     return valor.trim() === "";
 }
 
 function validarEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 function validarPassword(password) {
-    return password.length >= 8;
+    return /^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(password);
 }
 
 function passwordsIguales(p1, p2) {
@@ -20,13 +23,10 @@ function mostrarMensaje(elemento, mensaje, color) {
     elemento.style.color = color;
 }
 
-// 🔥 VISUAL
-function marcarError(input) {
-    input.classList.remove("ok");
-    input.classList.add("error");
+function marcarError(input, mensaje) {
+    input.style.border = "2px solid red";
 }
 
 function marcarOk(input) {
-    input.classList.remove("error");
-    input.classList.add("ok");
+    input.style.border = "2px solid #00ff88";
 }

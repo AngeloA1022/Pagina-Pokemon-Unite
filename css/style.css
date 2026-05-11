@@ -659,30 +659,15 @@ button:hover {
 /* VALIDACIÓN FORMULARIOS */
 /* ===================== */
 
-/* Input error */
-input.error {
-    border: 2px solid #ff4d4d;
-    box-shadow: 0 0 8px #ff4d4d;
+.error {
+    color: red;
+    font-size: 13px;
 }
 
-/* Input correcto */
-input.ok {
-    border: 2px solid #00ff88;
-    box-shadow: 0 0 8px #00ff88;
+.input-error {
+    border: 2px solid red;
 }
 
-/* Mensaje de error debajo */
-small {
-    display: block;
-    color: #ff4d4d;
-    font-size: 12px;
-    margin-top: -5px;
-    margin-bottom: 8px;
-}
-
-/* Mensaje general */
-#mensajeRegistro {
-    text-align: center;
-    margin-top: 10px;
-    font-weight: bold;
+.input-ok {
+    border: 2px solid green;
 }

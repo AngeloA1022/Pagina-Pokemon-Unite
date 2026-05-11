@@ -3,30 +3,26 @@ const loginForm = document.getElementById('loginForm');
 loginForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const email = document.getElementById('emailLogin');
-    const password = document.getElementById('passwordLogin');
+    const email = document.getElementById('emailLogin').value.trim();
+    const password = document.getElementById('passwordLogin').value.trim();
     const mensaje = document.getElementById('mensajeLogin');
 
-    let valido = true;
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-    if (!validarEmail(email.value)) {
-        marcarError(email);
-        valido = false;
-    } else {
-        marcarOk(email);
-    }
+    // Buscar usuario
+    const usuarioValido = usuarios.find(u => u.email === email && u.password === password);
 
-    if (campoVacio(password.value)) {
-        marcarError(password);
-        valido = false;
-    } else {
-        marcarOk(password);
-    }
-
-    if (!valido) {
-        mostrarMensaje(mensaje, "Datos incorrectos", "red");
+    if (!usuarioValido) {
+        mostrarMensaje(mensaje, "Email o contraseña incorrectos ❌", "red");
         return;
     }
 
-    mostrarMensaje(mensaje, "Login exitoso", "#00ff88");
+    // ==========================
+    // GUARDAR SESIÓN 🔥
+    // ==========================
+    localStorage.setItem("usuarioActivo", JSON.stringify(usuarioValido));
+
+    mostrarMensaje(mensaje, `Bienvenido ${usuarioValido.usuario} 🔥`, "#00ff88");
+
+    loginForm.reset();
 });

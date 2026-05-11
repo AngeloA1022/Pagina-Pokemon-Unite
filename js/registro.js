@@ -3,73 +3,97 @@ const registroForm = document.getElementById('registroForm');
 registroForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const usuario = document.getElementById('usuario');
-    const email = document.getElementById('emailRegistro');
-    const password = document.getElementById('password');
-    const confirmPassword = document.getElementById('confirmPassword');
+    const usuarioInput = document.getElementById('usuario');
+    const emailInput = document.getElementById('emailRegistro');
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+
+    const usuario = usuarioInput.value.trim();
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+    const confirmPassword = confirmPasswordInput.value.trim();
+
     const mensaje = document.getElementById('mensajeRegistro');
 
     let valido = true;
 
-    // ==========================
-    // VALIDAR USUARIO
-    // ==========================
-    if (campoVacio(usuario.value)) {
-        marcarError(usuario, "El usuario no puede estar vacío");
+    // LIMPIAR ERRORES
+    document.querySelectorAll(".error").forEach(e => e.textContent = "");
+    document.querySelectorAll("input").forEach(i => {
+        i.classList.remove("input-error", "input-ok");
+    });
+
+    // =====================
+    // USUARIO
+    // =====================
+    if (campoVacio(usuario)) {
+        document.getElementById("errorUsuario").textContent = "Campo obligatorio";
+        usuarioInput.classList.add("input-error");
         valido = false;
-    } else if (usuario.value.length < 4) {
-        marcarError(usuario, "Debe tener al menos 4 caracteres");
+    } else if (usuario.length < 4) {
+        document.getElementById("errorUsuario").textContent = "Mínimo 4 caracteres";
+        usuarioInput.classList.add("input-error");
         valido = false;
     } else {
-        marcarOk(usuario);
+        usuarioInput.classList.add("input-ok");
     }
 
-    // ==========================
-    // VALIDAR EMAIL
-    // ==========================
-    if (campoVacio(email.value)) {
-        marcarError(email, "El correo es obligatorio");
-        valido = false;
-    } else if (!validarEmail(email.value)) {
-        marcarError(email, "Formato de correo inválido");
+    // =====================
+    // EMAIL
+    // =====================
+    if (!validarEmail(email)) {
+        document.getElementById("errorEmail").textContent = "Correo inválido";
+        emailInput.classList.add("input-error");
         valido = false;
     } else {
-        marcarOk(email);
+        emailInput.classList.add("input-ok");
     }
 
-    // ==========================
-    // VALIDAR PASSWORD
-    // ==========================
-    if (campoVacio(password.value)) {
-        marcarError(password, "La contraseña es obligatoria");
-        valido = false;
-    } else if (!validarPassword(password.value)) {
-        marcarError(password, "Mínimo 8 caracteres, con número y letra");
+    // =====================
+    // PASSWORD
+    // =====================
+    if (!validarPassword(password)) {
+        document.getElementById("errorPassword").textContent = "Mínimo 6 caracteres";
+        passwordInput.classList.add("input-error");
         valido = false;
     } else {
-        marcarOk(password);
+        passwordInput.classList.add("input-ok");
     }
 
-    // ==========================
+    // =====================
     // CONFIRMAR PASSWORD
-    // ==========================
-    if (campoVacio(confirmPassword.value)) {
-        marcarError(confirmPassword, "Debes confirmar la contraseña");
+    // =====================
+    if (!passwordsIguales(password, confirmPassword)) {
+        document.getElementById("errorConfirmPassword").textContent = "Las contraseñas no coinciden";
+        confirmPasswordInput.classList.add("input-error");
         valido = false;
-    } else if (!passwordsIguales(password.value, confirmPassword.value)) {
-        marcarError(confirmPassword, "Las contraseñas no coinciden");
-        valido = false;
-    } else {
-        marcarOk(confirmPassword);
+    } else if (confirmPassword !== "") {
+        confirmPasswordInput.classList.add("input-ok");
     }
 
-    // ==========================
-    // RESULTADO FINAL
-    // ==========================
+    // =====================
+    // VALIDACIÓN FINAL
+    // =====================
     if (!valido) {
-        mostrarMensaje(mensaje, "Corrige los campos marcados", "red");
+        mostrarMensaje(mensaje, "Corrige los errores ❌", "red");
         return;
     }
 
+    // =====================
+    // GUARDAR USUARIO
+    // =====================
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+    const existe = usuarios.find(u => u.email === email);
+
+    if (existe) {
+        mostrarMensaje(mensaje, "El correo ya está registrado ⚠️", "orange");
+        return;
+    }
+
+    usuarios.push({ usuario, email, password });
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
     mostrarMensaje(mensaje, "Registro exitoso 🎉", "#00ff88");
+    registroForm.reset();
 });

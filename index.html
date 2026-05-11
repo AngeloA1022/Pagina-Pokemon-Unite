@@ -26,16 +26,23 @@
 
         <form id="registroForm">
 
-            <input type="text" id="usuario" placeholder="Usuario">
-            <input type="email" id="emailRegistro" placeholder="Correo">
-            <input type="password" id="password" placeholder="Contraseña">
-            <input type="password" id="confirmPassword" placeholder="Confirmar Contraseña">
+        <input type="text" id="usuario" placeholder="Usuario">
+        <span id="errorUsuario" class="error"></span>
 
-            <button type="submit">Registrarse</button>
+        <input type="email" id="emailRegistro" placeholder="Correo">
+        <span id="errorEmail" class="error"></span>
 
-            <p id="mensajeRegistro"></p>
+        <input type="password" id="password" placeholder="Contraseña">
+        <span id="errorPassword" class="error"></span>
 
-        </form>
+        <input type="password" id="confirmPassword" placeholder="Confirmar Contraseña">
+        <span id="errorConfirmPassword" class="error"></span>
+
+        <button type="submit">Registrarse</button>
+
+        <p id="mensajeRegistro"></p>
+
+    </form>
     </div>
 </div>
 
