@@ -670,26 +670,35 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
     <!-- FORMULARIO -->
     <div class="formulario">
 
-        <h3>CONTÁCTANOS</h3>
+<!-- FORMULARIO -->
+<div class="formulario">
 
-        <form id="contactoForm">
+    <h3>CONTÁCTANOS</h3>
 
-            <label>Nombre Completo *</label>
-            <input type="text" id="nombre" required>
+    <form id="contactoForm">
 
-            <label>Asunto *</label>
-            <input type="text" id="asunto" required>
+        <label>Nombre Completo *</label>
+        <input type="text" id="nombre">
+        <span id="errorNombre" class="error"></span>
 
-            <label>Mensaje *</label>
-            <textarea id="mensaje" maxlength="200" required></textarea>
+        <label>Asunto *</label>
+        <input type="text" id="asunto">
+        <span id="errorAsunto" class="error"></span>
 
-            <button type="submit">Enviar</button>
+        <label>Mensaje *</label>
+        <textarea id="mensaje" maxlength="200"></textarea>
+        <span id="errorMensaje" class="error"></span>
 
-            <p id="mensajeContacto"></p>
+        <!-- CONTADOR -->
+        <p id="contador">0 / 200</p>
 
-        </form>
+        <button type="submit">Enviar</button>
 
-    </div>
+        <p id="mensajeContacto"></p>
+
+    </form>
+
+</div>
 
 </section>
 
