@@ -760,14 +760,14 @@ window.onclick = function (event) {
 // VARIABLES
 // ==========================
 
-// Índice del slide actual
 let index = 0;
+let auto = null;
 
-// Contenedor de slides
 const slide = document.getElementById("slideDest");
 
-// Total de items
-const total = document.querySelectorAll("#slideDest .item").length;
+// Validación importante
+const items = slide ? slide.querySelectorAll(".item") : [];
+const total = items.length;
 
 
 // ==========================
@@ -776,7 +776,9 @@ const total = document.querySelectorAll("#slideDest .item").length;
 
 function showSlide(i) {
 
-    // Control circular (loop)
+    if (!slide) return;
+
+    // Loop infinito
     if (i >= total) {
         index = 0;
     } else if (i < 0) {
@@ -785,8 +787,9 @@ function showSlide(i) {
         index = i;
     }
 
-    // Movimiento horizontal (SLIDE)
-    slide.style.transform = `translateX(${-index * 100}%)`;
+    // Movimiento suave
+    slide.style.transition = "transform 0.8s ease-in-out";
+    slide.style.transform = `translateX(-${index * 100}%)`;
 }
 
 
@@ -794,73 +797,89 @@ function showSlide(i) {
 // BOTONES
 // ==========================
 
-// Siguiente
 function nextSlide() {
     showSlide(index + 1);
 }
 
-// Anterior
 function prevSlide() {
     showSlide(index - 1);
 }
 
 
 // ==========================
-// 🔥 AUTOPLAY
+// 🔥 AUTOPLAY PRO
 // ==========================
 
-let auto;
-
-// Inicia autoplay
 function iniciarAuto() {
+
+    detenerAuto(); // evita duplicados
+
     auto = setInterval(() => {
         nextSlide();
-    }, 10000);
+    }, 4000); // más fluido (antes 10s)
 }
 
-// Detiene autoplay
 function detenerAuto() {
-    clearInterval(auto);
+    if (auto) {
+        clearInterval(auto);
+        auto = null;
+    }
 }
 
 
 // ==========================
-// 📱 SWIPE (TOUCH)
+// 🖱️ PAUSA AL HOVER (PRO UX)
+// ==========================
+
+if (slide) {
+    slide.addEventListener("mouseenter", detenerAuto);
+    slide.addEventListener("mouseleave", iniciarAuto);
+}
+
+
+// ==========================
+// 📱 SWIPE MEJORADO
 // ==========================
 
 let startX = 0;
 
-slide.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-    detenerAuto(); // pausa autoplay
-});
+if (slide) {
 
-slide.addEventListener("touchend", (e) => {
+    slide.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+        detenerAuto();
+    });
 
-    let endX = e.changedTouches[0].clientX;
-    let diff = startX - endX;
+    slide.addEventListener("touchend", (e) => {
 
-    // Detecta dirección del swipe
-    if (Math.abs(diff) > 50) {
+        let endX = e.changedTouches[0].clientX;
+        let diff = startX - endX;
 
-        if (diff > 0) {
-            nextSlide(); // izquierda
-        } else {
-            prevSlide(); // derecha
+        if (Math.abs(diff) > 50) {
+
+            if (diff > 0) {
+                nextSlide(); // izquierda
+            } else {
+                prevSlide(); // derecha
+            }
         }
-    }
 
-    iniciarAuto(); // reanuda autoplay
-});
+        iniciarAuto();
+    });
+}
 
 
 // ==========================
-// INICIO
+// INICIO SEGURO
 // ==========================
 
-window.addEventListener("load", () => {
-    showSlide(0);   // inicia en el primero
-    iniciarAuto();  // activa autoplay
+window.addEventListener("DOMContentLoaded", () => {
+
+    if (!slide) return;
+
+    showSlide(0);
+    iniciarAuto();
+
 });
 
 
