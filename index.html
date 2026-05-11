@@ -103,49 +103,46 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
     </ul>
 </nav>
 
-<!-- ===================== -->
-<!-- CARRUSELES -->
-<!-- ===================== -->
+<section class="destacados">
+    <h2>Pokémon Destacados</h2>
 
-<section>
-    <h2>Equilibrados</h2>
+    <div class="carrusel-container">
 
-    <div class="carrusel">
-        <img id="imgEq">
-        <button onclick="prevEq()">❮</button>
-        <button onclick="nextEq()">❯</button>
+        <!-- SLIDE -->
+        <div class="carrusel-slide" id="slideDest">
+
+            <div class="item">
+                <img src="images/pikachu.png">
+                <h3>Pikachu</h3>
+                <p>Rápido y eléctrico</p>
+            </div>
+
+            <div class="item">
+                <img src="images/charizard.png">
+                <h3>Charizard</h3>
+                <p>Gran poder ofensivo</p>
+            </div>
+
+            <div class="item">
+                <img src="images/lucario.png">
+                <h3>Lucario</h3>
+                <p>Equilibrado y versátil</p>
+            </div>
+
+            <div class="item">
+                <img src="images/gengar.png">
+                <h3>Gengar</h3>
+                <p>Ataque sorpresa</p>
+            </div>
+
+        </div>
+
+        <!-- BOTONES -->
+        <button class="prev" onclick="prevSlide()">❮</button>
+        <button class="next" onclick="nextSlide()">❯</button>
+
     </div>
-
-    <h3 id="tituloEq"></h3>
-    <p id="descEq"></p>
 </section>
-
-<section>
-    <h2>Ofensivos</h2>
-
-    <div class="carrusel">
-        <img id="imgOf">
-        <button onclick="prevOf()">❮</button>
-        <button onclick="nextOf()">❯</button>
-    </div>
-
-    <h3 id="tituloOf"></h3>
-    <p id="descOf"></p>
-</section>
-
-<section>
-    <h2>Defensivos</h2>
-
-    <div class="carrusel">
-        <img id="imgDef">
-        <button onclick="prevDef()">❮</button>
-        <button onclick="nextDef()">❯</button>
-    </div>
-
-    <h3 id="tituloDef"></h3>
-    <p id="descDef"></p>
-</section>
-
 
 <hr>
 <section id="inicio" class="Inicio">
@@ -671,139 +668,113 @@ window.onclick = function (event) {
 };
 
 // ==========================
-// CARRUSELES
+// VARIABLES
 // ==========================
-let eqIndex = 0;
-let ofIndex = 0;
-let defIndex = 0;
 
-// DATA (IMPORTANTE: completado correctamente)
-let eq = [
-    {img:"images/charizard.png"},
-    {img:"images/urshifu.png"},
-    {img:"images/aegislash.png"}
-];
+// Índice del slide actual
+let index = 0;
 
-let of = [
-    {img:"images/pikachu.png",},
-    {img:"images/cinderace.png"},
-    {img:"images/greninja.png"}
-];
+// Contenedor de slides
+const slide = document.getElementById("slideDest");
 
-let def = [
-    {img:"images/blastoise.png"},
-    {img:"images/goodra.png"}
-];
+// Total de items
+const total = document.querySelectorAll("#slideDest .item").length;
+
 
 // ==========================
-// INIT
+// MOSTRAR SLIDE
 // ==========================
-window.addEventListener("load", () => {
-    mostrareq();
-    mostrarof();
-    mostrardef();
 
-    iniciarAutoCarrusel();
+function showSlide(i) {
 
-    // SWIPE
-    agregarSwipe("imgEq", prevEq, nextEq);
-    agregarSwipe("imgOf", prevOf, nextOf);
-    agregarSwipe("imgDef", prevDef, nextDef);
+    // Control circular (loop)
+    if (i >= total) {
+        index = 0;
+    } else if (i < 0) {
+        index = total - 1;
+    } else {
+        index = i;
+    }
+
+    // Movimiento horizontal (SLIDE)
+    slide.style.transform = `translateX(${-index * 100}%)`;
+}
+
+
+// ==========================
+// BOTONES
+// ==========================
+
+// Siguiente
+function nextSlide() {
+    showSlide(index + 1);
+}
+
+// Anterior
+function prevSlide() {
+    showSlide(index - 1);
+}
+
+
+// ==========================
+// 🔥 AUTOPLAY
+// ==========================
+
+let auto;
+
+// Inicia autoplay
+function iniciarAuto() {
+    auto = setInterval(() => {
+        nextSlide();
+    }, 3000);
+}
+
+// Detiene autoplay
+function detenerAuto() {
+    clearInterval(auto);
+}
+
+
+// ==========================
+// 📱 SWIPE (TOUCH)
+// ==========================
+
+let startX = 0;
+
+slide.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+    detenerAuto(); // pausa autoplay
 });
 
-// ==========================
-// CARRUSEL FUNCIONES
-// ==========================
-function mostrareq() {
-    document.getElementById("imgEq").src = eq[eqIndex].img;
-    document.getElementById("tituloEq").textContent = eq[eqIndex].nombre;
-    document.getElementById("descEq").textContent = eq[eqIndex].desc;
-}
+slide.addEventListener("touchend", (e) => {
 
-function prevEq() {
-    eqIndex = (eqIndex - 1 + eq.length) % eq.length;
-    mostrareq();
-}
+    let endX = e.changedTouches[0].clientX;
+    let diff = startX - endX;
 
-function nextEq() {
-    eqIndex = (eqIndex + 1) % eq.length;
-    mostrareq();
-}
+    // Detecta dirección del swipe
+    if (Math.abs(diff) > 50) {
 
-function mostrarof() {
-    document.getElementById("imgOf").src = of[ofIndex].img;
-    document.getElementById("tituloOf").textContent = of[ofIndex].nombre;
-    document.getElementById("descOf").textContent = of[ofIndex].desc;
-}
-
-function prevOf() {
-    ofIndex = (ofIndex - 1 + of.length) % of.length;
-    mostrarof();
-}
-
-function nextOf() {
-    ofIndex = (ofIndex + 1) % of.length;
-    mostrarof();
-}
-
-function mostrardef() {
-    document.getElementById("imgDef").src = def[defIndex].img;
-    document.getElementById("tituloDef").textContent = def[defIndex].nombre;
-    document.getElementById("descDef").textContent = def[defIndex].desc;
-}
-
-function prevDef() {
-    defIndex = (defIndex - 1 + def.length) % def.length;
-    mostrardef();
-}
-
-function nextDef() {
-    defIndex = (defIndex + 1) % def.length;
-    mostrardef();
-}
-
-// ==========================
-// 🔥 AUTO CARRUSEL
-// ==========================
-let autoInterval;
-
-function iniciarAutoCarrusel() {
-    autoInterval = setInterval(() => {
-        nextEq();
-        nextOf();
-        nextDef();
-    }, 4000);
-}
-
-function detenerAutoCarrusel() {
-    clearInterval(autoInterval);
-}
-
-// ==========================
-// 📱 SWIPE TÁCTIL
-// ==========================
-function agregarSwipe(id, prevFn, nextFn) {
-    const el = document.getElementById(id);
-
-    let startX = 0;
-
-    el.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].clientX;
-        detenerAutoCarrusel();
-    });
-
-    el.addEventListener("touchend", (e) => {
-        let endX = e.changedTouches[0].clientX;
-        let diff = startX - endX;
-
-        if (Math.abs(diff) > 50) {
-            if (diff > 0) nextFn();
-            else prevFn();
+        if (diff > 0) {
+            nextSlide(); // izquierda
+        } else {
+            prevSlide(); // derecha
         }
+    }
 
-        iniciarAutoCarrusel();
-    });
-}
+    iniciarAuto(); // reanuda autoplay
+});
+
+
+// ==========================
+// INICIO
+// ==========================
+
+window.addEventListener("load", () => {
+    showSlide(0);   // inicia en el primero
+    iniciarAuto();  // activa autoplay
+});
+
+
 </script>
 
 <script src="js/validaciones.js"></script>

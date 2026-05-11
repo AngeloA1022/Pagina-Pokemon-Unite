@@ -549,69 +549,76 @@ button:hover {
 }
 
 /* ===================== */
-/* CARRUSEL MEJORADO PRO */
+/* 🔥 CARRUSEL DESTACADOS */
 /* ===================== */
-.carrusel {
-    position: relative;
-    width: 300px;
-    margin: auto;
+
+/* Contenedor principal del carrusel */
+.destacados {
+    background: #000; /* negro */
+    color: #fff; /* blanco */
     text-align: center;
-    overflow: hidden;
-    border-radius: 12px;
+    padding: 40px;
+    border-radius: 15px;
 }
 
-/* imagen con efecto suave */
-.carrusel img {
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
-    border-radius: 12px;
-
-    opacity: 1;
-    transform: scale(1);
-
-    transition: opacity 0.4s ease, transform 0.4s ease;
+/* Contenedor que oculta el overflow */
+.carrusel-container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden; /* clave para el slide */
+    position: relative;
+    border-radius: 15px;
 }
 
-/* efecto visual cuando cambia (lo activa JS si quieres luego) */
-.carrusel img.fade {
-    opacity: 0;
-    transform: scale(0.95);
+/* Contenedor que se mueve */
+.carrusel-slide {
+    display: flex; /* coloca en fila */
+    transition: transform 0.5s ease-in-out; /* animación suave */
 }
 
-/* botones más modernos */
-.carrusel button {
+/* Cada slide */
+.item {
+    min-width: 100%; /* ocupa toda la pantalla */
+    padding: 20px;
+    background: #111;
+}
+
+/* Imagen */
+.item img {
+    width: 200px;
+}
+
+/* Título */
+.item h3 {
+    color: #00ff88; /* verde */
+}
+
+/* ===================== */
+/* BOTONES DEL CARRUSEL */
+/* ===================== */
+
+.carrusel-container button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-
-    background: rgba(0,0,0,0.55);
-    color: white;
-
+    background: #00ff88;
     border: none;
-    padding: 10px 14px;
-
+    padding: 10px;
     cursor: pointer;
-    font-size: 18px;
-
-    border-radius: 50%;
-
-    transition: 0.3s ease;
-    backdrop-filter: blur(4px);
+    font-size: 20px;
 }
 
-/* hover pro */
-.carrusel button:hover {
-    background: rgba(0,0,0,0.85);
-    transform: translateY(-50%) scale(1.1);
+/* Botón izquierda */
+.carrusel-container .prev {
+    left: 10px;
 }
 
-/* izquierda */
-.carrusel button:first-of-type {
-    left: 8px;
+/* Botón derecha */
+.carrusel-container .next {
+    right: 10px;
 }
 
-/* derecha */
-.carrusel button:last-of-type {
-    right: 8px;
+/* Hover */
+.carrusel-container button:hover {
+    background: #00cc66;
 }
