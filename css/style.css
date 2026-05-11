@@ -661,7 +661,9 @@ button:hover {
 
 .error {
     color: red;
-    font-size: 13px;
+    font-size: 12px;
+    margin-bottom: 10px;
+    display: block;
 }
 
 .input-error {
@@ -669,5 +671,5 @@ button:hover {
 }
 
 .input-ok {
-    border: 2px solid green;
+    border: 2px solid #00ff88;
 }
