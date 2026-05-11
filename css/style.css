@@ -548,11 +548,12 @@ button:hover {
     font-weight: bold;
 }
 
+
 /* ===================== */
 /* 🔥 CARRUSEL DESTACADOS */
 /* ===================== */
 
-/* Contenedor principal */
+/* Sección */
 .destacados {
     background: #000;
     color: #fff;
@@ -561,45 +562,61 @@ button:hover {
     border-radius: 15px;
 }
 
-/* Contenedor del carrusel */
+/* Contenedor principal */
 .carrusel-container {
     width: 80%;
-    margin: auto;
+    margin: 40px auto;
     overflow: hidden;
     position: relative;
     border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Slides en fila (IMPORTANTE para el efecto slide) */
+/* Slides */
 .carrusel-slide {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.8s ease-in-out;
+    width: 100%;
 }
 
-/* Cada item */
+/* Item individual */
 .item {
     min-width: 100%;
     background: #111;
     padding: 20px;
 
-    /* 🔥 CENTRADO PERFECTO */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    height: 320px; /* 🔥 clave para centrado vertical */
+    text-align: center;
 }
 
-/* Imagen centrada */
+/* Imagen */
 .item img {
     width: 200px;
     height: auto;
+
     display: block;
+    margin: 0 auto;
+
+    transition: transform 0.3s ease;
+}
+
+/* Hover moderno */
+.item img:hover {
+    transform: scale(1.1);
 }
 
 /* Título */
 .item h3 {
     color: #00ff88;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 /* ===================== */
@@ -610,25 +627,30 @@ button:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+
     background: #00ff88;
     border: none;
-    padding: 10px;
+    padding: 12px 15px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 22px;
     z-index: 10;
+
+    border-radius: 50%;
+    transition: 0.3s;
 }
 
-/* Botón izquierda */
-.prev {
-    left: 10px;
-}
-
-/* Botón derecha */
-.next {
-    right: 10px;
-}
-
-/* Hover */
+/* Hover botones */
 .carrusel-container button:hover {
     background: #00cc66;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Izquierda */
+.prev {
+    left: 15px;
+}
+
+/* Derecha */
+.next {
+    right: 15px;
 }
