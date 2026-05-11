@@ -19,9 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
 
         const usuario = document.getElementById('usuario');
-        const email = document.getElementById('email');
+        const email = document.getElementById('emailRegistro');
         const password = document.getElementById('password');
-        const confirmar = document.getElementById('confirmar');
+        const confirmar = document.getElementById('confirmPassword');
         const mensaje = document.getElementById('mensajeRegistro');
 
         if (!usuario.value.trim() || !email.value.trim() || !password.value || !confirmar.value) {
@@ -63,8 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
     loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        const email = document.getElementById('loginEmail');
-        const password = document.getElementById('loginPassword');
+        const email = document.getElementById('emailLogin');
+        const password = document.getElementById('passwordLogin');
         const mensaje = document.getElementById('mensajeLogin');
 
         if (!email.value.trim() || !password.value) {
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const contador = document.getElementById('contador');
 
     mensajeInput.addEventListener('input', () => {
-        contador.textContent = mensajeInput.value.length;
+        contador.textContent = mensajeInput.value.length + " / 200";
     });
 
     contactoForm.addEventListener('submit', function(e) {
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         mostrarMensaje(mensaje, "Mensaje enviado correctamente ✅", "green");
         contactoForm.reset();
-        contador.textContent = "0";
+        contador.textContent = "0 / 200";
     });
 
 });
