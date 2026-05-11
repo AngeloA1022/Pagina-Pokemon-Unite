@@ -112,27 +112,33 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
         <div class="carrusel-slide" id="slideDest">
 
             <div class="item">
-                <img src="images/pikachu.png">
-                <h3>Pikachu</h3>
-                <p>Rápido y eléctrico</p>
+                <img src="images/aegislash.png">
+                <h3>Aegislash</h3>
+                <p>Equilibrado y versátil</p>
             </div>
 
             <div class="item">
                 <img src="images/charizard.png">
                 <h3>Charizard</h3>
-                <p>Gran poder ofensivo</p>
+                <p>Gran poder Equilibrado</p>
             </div>
 
             <div class="item">
-                <img src="images/lucario.png">
-                <h3>Lucario</h3>
-                <p>Equilibrado y versátil</p>
+                <img src="images/greninja.png">
+                <h3>Greninja</h3>
+                <p>Ofensivo y ágil</p>
             </div>
 
             <div class="item">
-                <img src="images/gengar.png">
-                <h3>Gengar</h3>
-                <p>Ataque sorpresa</p>
+                <img src="images/decidueye.png">
+                <h3>Decidueye</h3>
+                <p>Arquero y veloz</p>
+            </div>
+
+            <div class="item">
+                <img src="images/blastoise.png">
+                <h3>Blastoise</h3>
+                <p>Defensivo y poderoso</p>
             </div>
 
         </div>
@@ -438,6 +444,83 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
         <div id="goodra-set" style="display: none;">Set recomendado para Goodra: Objetos: Páramo Glacial, Atuendo de Marcávora, Banda Focus</div>
     </div>
 
+    <div class="card">
+        <h3>Mamoswine</h3>
+        <div class="card-content">
+            <img src="images/mamoswine.png" alt="Mamoswine" class="pokemon-img">
+            <div class="card-buttons">
+                <button class="button" onclick="toggleDescription(this)">Ver descripción</button>
+                <button class="button attack-button" onclick="toggleInfo('mamoswine-attack1')">Ataque 1</button>
+                <button class="button attack-button" onclick="toggleInfo('mamoswine-attack2')">Ataque 2</button>
+                <button class="button set-button" onclick="toggleInfo('mamoswine-set')">Set recomendado</button>
+            </div>
+        </div>
+        <p style="display: none;">Mamoswine es un Pokemon de tipo hielo y tierra que se destaca por su poder de ataque y defensa. Sus habilidades incluyen movimientos rápidos y ataques de hielo que pueden derrotar a los enemigos. Es ideal para jugadores que prefieren un estilo de juego balanceado y táctico.</p>
+        <div id="mamoswine-attack1" style="display: none;" class="attack-options">
+            <label><input type="radio" name="mamoswine-attack1" value="Tajo Aéreo"> Tajo Aéreo</label>
+            <label><input type="radio" name="mamoswine-attack1" value="Terremoto"> Terremoto</label>
+            <p id="mamoswine-attack1-selected"></p>
+        </div>
+        <div id="mamoswine-attack2" style="display: none;" class="attack-options">
+            <label><input type="radio" name="mamoswine-attack2" value="Garra Dragón"> Garra Dragón</label>
+            <label><input type="radio" name="mamoswine-attack2" value="Colmillo Ígneo"> Colmillo Ígneo</label>
+            <p id="mamoswine-attack2-selected"></p>
+        </div>
+        <div id="mamoswine-set" style="display: none;">Set recomendado para Mamoswine: Objetos: Páramo Glacial, Atuendo de Marcávora, Banda Focus</div>
+
+    </div>
+
+    <div class="card">
+        <h3>Crustle</h3>
+        <div class="card-content">
+            <img src="images/crustle.png" alt="Crustle" class="pokemon-img">
+            <div class="card-buttons">
+                <button class="button" onclick="toggleDescription(this)">Ver descripción</button>
+                <button class="button attack-button" onclick="toggleInfo('crustle-attack1')">Ataque 1</button>
+                <button class="button attack-button" onclick="toggleInfo('crustle-attack2')">Ataque 2</button>
+                <button class="button set-button" onclick="toggleInfo('crustle-set')">Set recomendado</button>
+            </div>
+        </div>
+        <p style="display: none;">Crustle es un Pokemon de tipo roca y tierra que se destaca por su poder de ataque y defensa. Sus habilidades incluyen movimientos rápidos y ataques de roca que pueden derrotar a los enemigos. Es ideal para jugadores que prefieren un estilo de juego balanceado y táctico.</p>
+        <div id="crustle-attack1" style="display: none;" class="attack-options">
+            <label><input type="radio" name="crustle-attack1" value="Tajo Aéreo"> Tajo Aéreo</label>
+            <label><input type="radio" name="crustle-attack1" value="Terremoto"> Terremoto</label>
+            <p id="crustle-attack1-selected"></p>
+        </div>
+        <div id="crustle-attack2" style="display: none;" class="attack-options">
+            <label><input type="radio" name="crustle-attack2" value="Garra Dragón"> Garra Dragón</label>
+            <label><input type="radio" name="crustle-attack2" value="Colmillo Ígneo"> Colmillo Ígneo</label>
+            <p id="crustle-attack2-selected"></p>
+        </div>
+        <div id="crustle-set" style="display: none;">Set recomendado para Crustle: Objetos: Páramo Glacial, Atuendo de Marcávora, Banda Focus</div>
+
+    </div>
+
+    <div class="card">
+        <h3>Zacian</h3>
+        <div class="card-content">
+            <img src="images/zacian.png" alt="Zacian" class="pokemon-img">
+            <div class="card-buttons">
+                <button class="button" onclick="toggleDescription(this)">Ver descripción</button>
+                <button class="button attack-button" onclick="toggleInfo('zacian-attack1')">Ataque 1</button>
+                <button class="button attack-button" onclick="toggleInfo('zacian-attack2')">Ataque 2</button>
+                <button class="button set-button" onclick="toggleInfo('zacian-set')">Set recomendado</button>
+            </div>
+        </div>
+        <p style="display: none;">Zacian es un Pokemon de tipo hada y acero que se destaca por su poder de ataque y defensa. Sus habilidades incluyen movimientos rápidos y ataques de hada que pueden derrotar a los enemigos. Es ideal para jugadores que prefieren un estilo de juego balanceado y táctico.</p>
+        <div id="zacian-attack1" style="display: none;" class="attack-options">
+            <label><input type="radio" name="zacian-attack1" value="Tajo Aéreo"> Tajo Aéreo</label>
+            <label><input type="radio" name="zacian-attack1" value="Terremoto"> Terremoto</label>
+            <p id="zacian-attack1-selected"></p>
+        </div>
+        <div id="zacian-attack2" style="display: none;" class="attack-options">
+            <label><input type="radio" name="zacian-attack2" value="Garra Dragón"> Garra Dragón</label>
+            <label><input type="radio" name="zacian-attack2" value="Colmillo Ígneo"> Colmillo Ígneo</label>
+            <p id="zacian-attack2-selected"></p>
+        </div>
+        <div id="zacian-set" style="display: none;">Set recomendado para Zacian: Objetos: Páramo Glacial, Atuendo de Marcávora, Banda Focus</div>
+
+
 </section>
 
 <!--Seccion de Mapas--> 
@@ -596,7 +679,7 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
 
 
 <!-- ===================== -->
-<!-- FOOTER (SEPARADO) -->
+<!-- FOOTER -->
 <!-- ===================== -->
 <footer id="footer" class="footer">
     <div class="footer-container">
