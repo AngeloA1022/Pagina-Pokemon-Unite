@@ -53,7 +53,7 @@ registroForm.addEventListener('submit', function(e) {
     // PASSWORD
     // =====================
     if (!validarPassword(password)) {
-        document.getElementById("errorPassword").textContent = "Mínimo 6 caracteres";
+        document.getElementById("errorPassword").textContent = "Mínimo 8 caracteres";
         passwordInput.classList.add("input-error");
         valido = false;
     } else {
