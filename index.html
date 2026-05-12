@@ -77,10 +77,12 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
 
             <!-- PASSWORD -->
             <input type="password" id="password" placeholder="Contraseña" required>
+            <button type="button" class="toggle-password" onclick="togglePassword('password', this)">Mostrar</button>
             <small id="errorPassword" class="error"></small>
 
             <!-- CONFIRMAR PASSWORD -->
             <input type="password" id="confirmPassword" placeholder="Confirmar Contraseña" required>
+            <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword', this)">Mostrar</button>
             <small id="errorConfirmPassword" class="error"></small>
 
             <button type="submit">Registrarse</button>
@@ -109,6 +111,7 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
 
             <!-- PASSWORD LOGIN -->
             <input type="password" id="passwordLogin" placeholder="Contraseña" required>
+            <button type="button" class="toggle-password" onclick="togglePassword('passwordLogin', this)">Mostrar</button>
             <small id="errorPasswordLogin" class="error"></small>
 
             <button type="submit">Ingresar</button>
@@ -747,9 +750,14 @@ domReady(() => {
     // ==========================
     // MOSTRAR / OCULTAR PASSWORD
     // ==========================
-    function togglePassword(id) {
+    function togglePassword(id, button) {
         const input = document.getElementById(id);
-        input.type = input.type === "password" ? "text" : "password";
+        if (!input) return;
+        const isPassword = input.type === "password";
+        input.type = isPassword ? "text" : "password";
+        if (button) {
+            button.textContent = isPassword ? "Ocultar" : "Mostrar";
+        }
     }
 
     // ==========================
