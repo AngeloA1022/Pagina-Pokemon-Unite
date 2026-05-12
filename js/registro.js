@@ -17,9 +17,11 @@ registroForm.addEventListener('submit', function(e) {
 
     let valido = true;
 
+    // =====================
     // LIMPIAR ERRORES
+    // =====================
     document.querySelectorAll(".error").forEach(e => e.textContent = "");
-    document.querySelectorAll("input").forEach(i => {
+    document.querySelectorAll("#registroForm input").forEach(i => {
         i.classList.remove("input-error", "input-ok");
     });
 
@@ -30,8 +32,8 @@ registroForm.addEventListener('submit', function(e) {
         document.getElementById("errorUsuario").textContent = "Campo obligatorio";
         usuarioInput.classList.add("input-error");
         valido = false;
-    } else if (usuario.length < 4) {
-        document.getElementById("errorUsuario").textContent = "Mínimo 4 caracteres";
+    } else if (usuario.length < 3) {
+        document.getElementById("errorUsuario").textContent = "Mínimo 3 caracteres";
         usuarioInput.classList.add("input-error");
         valido = false;
     } else {
@@ -75,25 +77,25 @@ registroForm.addEventListener('submit', function(e) {
     // VALIDACIÓN FINAL
     // =====================
     if (!valido) {
-        mostrarMensaje(mensaje, "Corrige los errores ", "red");
+        mostrarMensaje(mensaje, "Corrige los errores", "red");
         return;
     }
 
     // =====================
-    // GUARDAR USUARIO
+    // USAR ARREGLO GLOBAL (SIN localStorage)
     // =====================
-    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-
     const existe = usuarios.find(u => u.email === email);
 
     if (existe) {
-        mostrarMensaje(mensaje, "El correo ya está registrado ", "orange");
+        mostrarMensaje(mensaje, "El correo ya está registrado", "orange");
+        emailInput.classList.add("input-error");
         return;
     }
 
+    // GUARDAR EN MEMORIA
     usuarios.push({ usuario, email, password });
-    localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
-    mostrarMensaje(mensaje, "Registro exitoso ", "#00ff88");
+    mostrarMensaje(mensaje, "Registro exitoso", "#00ff88");
+
     registroForm.reset();
 });

@@ -11,11 +11,13 @@ loginForm.addEventListener('submit', function(e) {
 
     const mensaje = document.getElementById('mensajeLogin');
 
-    //  ERRORES INDIVIDUALES
+    // ERRORES INDIVIDUALES
     const errorEmail = document.getElementById('errorEmailLogin');
     const errorPassword = document.getElementById('errorPasswordLogin');
 
-    // Limpiar errores
+    // ==========================
+    // LIMPIAR ERRORES
+    // ==========================
     errorEmail.textContent = "";
     errorPassword.textContent = "";
 
@@ -50,25 +52,22 @@ loginForm.addEventListener('submit', function(e) {
         passwordInput.classList.add("input-ok");
     }
 
+    // VALIDACIÓN GENERAL
     if (!valido) {
-        mostrarMensaje(mensaje, "Corrige los errores ", "red");
+        mostrarMensaje(mensaje, "Corrige los errores", "red");
         return;
     }
 
     // ==========================
-    // VERIFICAR USUARIO
+    // USAR ARREGLO GLOBAL (SIN localStorage)
     // ==========================
-
-    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-
     const usuarioValido = usuarios.find(
         u => u.email === email && u.password === password
     );
 
     if (!usuarioValido) {
-        mostrarMensaje(mensaje, "Email o contraseña incorrectos ", "red");
+        mostrarMensaje(mensaje, "Email o contraseña incorrectos", "red");
 
-        // Marcar ambos como error
         emailInput.classList.add("input-error");
         passwordInput.classList.add("input-error");
 
@@ -76,12 +75,16 @@ loginForm.addEventListener('submit', function(e) {
     }
 
     // ==========================
-    // GUARDAR SESIÓN 
+    // GUARDAR SESIÓN EN MEMORIA
     // ==========================
-    localStorage.setItem("usuarioActivo", JSON.stringify(usuarioValido));
+    sesionActiva = usuarioValido;
 
-    mostrarMensaje(mensaje, `Bienvenido ${usuarioValido.usuario} `, "#00ff88");
+    mostrarMensaje(mensaje, `Bienvenido ${usuarioValido.usuario}`, "#00ff88");
 
+    // MOSTRAR ARRIBA
+    mostrarSesion();
+
+    // LIMPIAR FORM
     loginForm.reset();
 
     emailInput.classList.remove("input-ok");

@@ -52,7 +52,6 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
 
 <hr>
 
-
 <!-- ===================== -->
 <!-- MODAL REGISTRO -->
 <!-- ===================== -->
@@ -63,25 +62,29 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
 
         <h4>Registro</h4>
 
-        <form id="registroForm">
+        <form id="registroForm" novalidate>
 
-        <input type="text" id="usuario" placeholder="Usuario">
-        <span id="errorUsuario" class="error"></span>
+            <!-- USUARIO -->
+            <input type="text" id="usuario" placeholder="Usuario" required>
+            <small id="errorUsuario" class="error"></small>
 
-        <input type="email" id="emailRegistro" placeholder="Correo">
-        <span id="errorEmail" class="error"></span>
+            <!-- EMAIL -->
+            <input type="email" id="emailRegistro" placeholder="Correo" required>
+            <small id="errorEmail" class="error"></small>
 
-        <input type="password" id="password" placeholder="Contraseña">
-        <span id="errorPassword" class="error"></span>
+            <!-- PASSWORD -->
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <small id="errorPassword" class="error"></small>
 
-        <input type="password" id="confirmPassword" placeholder="Confirmar Contraseña">
-        <span id="errorConfirmPassword" class="error"></span>
+            <!-- CONFIRMAR PASSWORD -->
+            <input type="password" id="confirmPassword" placeholder="Confirmar Contraseña" required>
+            <small id="errorConfirmPassword" class="error"></small>
 
-        <button type="submit">Registrarse</button>
+            <button type="submit">Registrarse</button>
 
-        <p id="mensajeRegistro"></p>
+            <p id="mensajeRegistro"></p>
 
-    </form>
+        </form>
     </div>
 </div>
 
@@ -95,13 +98,15 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
 
         <h4>Login</h4>
 
-        <form id="loginForm">
+        <form id="loginForm" novalidate>
 
-        <input type="email" id="emailLogin" placeholder="Correo">
-        <span id="errorEmailLogin" class="error"></span>
+            <!-- EMAIL LOGIN -->
+            <input type="email" id="emailLogin" placeholder="Correo" required>
+            <small id="errorEmailLogin" class="error"></small>
 
-        <input type="password" id="passwordLogin" placeholder="Contraseña">
-        <span id="errorPasswordLogin" class="error"></span>
+            <!-- PASSWORD LOGIN -->
+            <input type="password" id="passwordLogin" placeholder="Contraseña" required>
+            <small id="errorPasswordLogin" class="error"></small>
 
             <button type="submit">Ingresar</button>
 
@@ -866,7 +871,7 @@ domReady(() => {
 <script src="js/registro.js"></script>
 <script src="js/login.js"></script>
 <script src="js/contacto.js"></script>
-
+<script src="js/sesion.js"></script>
 
 </body>
 </html>
