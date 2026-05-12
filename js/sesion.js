@@ -7,18 +7,20 @@ let usuarioActivo = null;
 
 // Mostrar usuario en pantalla
 function mostrarUsuario(usuario) {
-    const header = document.getElementById("usuarioHeader");
+    const header = document.querySelector(".usuario-header");
+    if (!header) return;
 
     header.style.display = "block";
     header.innerHTML = `
-        👋 Bienvenido, <b>${usuario.nombre}</b>
-        <button onclick="cerrarSesion()" class="btn-logout">Cerrar sesión</button>
+        👋 Bienvenido, <b>${usuario.usuario}</b>
+        <button onclick="cerrarSesion()" class="cerrar-sesion">Cerrar sesión</button>
     `;
 }
 
 // Ocultar usuario
 function ocultarUsuario() {
-    const header = document.getElementById("usuarioHeader");
+    const header = document.querySelector(".usuario-header");
+    if (!header) return;
     header.style.display = "none";
     header.innerHTML = "";
 }
