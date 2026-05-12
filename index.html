@@ -725,181 +725,140 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
 
 
 <script>
-// ==========================
-// FUNCIONES QUE YA TENÍAS
-// ==========================
-function toggleDescription(button) {
-    const card = button.closest('.card');
-    const p = card.querySelector('p');
-
-    if (p.style.display === 'none') {
-        p.style.display = 'block';
-        button.textContent = 'Ocultar descripción';
+function domReady(fn) {
+    if (document.readyState !== 'loading') {
+        fn();
     } else {
-        p.style.display = 'none';
-        button.textContent = 'Ver descripción';
+        document.addEventListener('DOMContentLoaded', fn);
     }
 }
 
-function toggleInfo(id) {
-    const el = document.getElementById(id);
-    el.style.display = el.style.display === 'none' ? 'block' : 'none';
+domReady(() => {
 
-    const radios = el.querySelectorAll('input[type="radio"]');
+    function toggleDescription(button) {
+        const card = button.closest('.card');
+        const p = card.querySelector('p');
 
-    radios.forEach(radio => {
-        radio.addEventListener('change', function () {
-            const selectedId = id + '-selected';
-            const selectedElement = document.getElementById(selectedId);
+        if (p.style.display === 'none') {
+            p.style.display = 'block';
+            button.textContent = 'Ocultar descripción';
+        } else {
+            p.style.display = 'none';
+            button.textContent = 'Ver descripción';
+        }
+    }
 
-            if (selectedElement) {
-                selectedElement.textContent = 'Seleccionado: ' + this.value;
-            }
+    function toggleInfo(id) {
+        const el = document.getElementById(id);
+        el.style.display = el.style.display === 'none' ? 'block' : 'none';
+
+        const radios = el.querySelectorAll('input[type="radio"]');
+
+        radios.forEach(radio => {
+            radio.addEventListener('change', function () {
+                const selectedId = id + '-selected';
+                const selectedElement = document.getElementById(selectedId);
+
+                if (selectedElement) {
+                    selectedElement.textContent = 'Seleccionado: ' + this.value;
+                }
+            });
         });
-    });
-}
-
-function abrirModal(id) {
-    document.getElementById(id).style.display = "flex";
-}
-
-function cerrarModal(id) {
-    document.getElementById(id).style.display = "none";
-}
-
-window.onclick = function (event) {
-    if (event.target.classList.contains("modal")) {
-        event.target.style.display = "none";
-    }
-};
-
-// ==========================
-// VARIABLES
-// ==========================
-
-let index = 0;
-let auto = null;
-
-const slide = document.getElementById("slideDest");
-
-// Validación importante
-const items = slide ? slide.querySelectorAll(".item") : [];
-const total = items.length;
-
-
-// ==========================
-// MOSTRAR SLIDE
-// ==========================
-
-function showSlide(i) {
-
-    if (!slide) return;
-
-    // Loop infinito
-    if (i >= total) {
-        index = 0;
-    } else if (i < 0) {
-        index = total - 1;
-    } else {
-        index = i;
     }
 
-    // Movimiento suave
-    slide.style.transition = "transform 0.8s ease-in-out";
-    slide.style.transform = `translateX(-${index * 100}%)`;
-}
-
-
-// ==========================
-// BOTONES
-// ==========================
-
-function nextSlide() {
-    showSlide(index + 1);
-}
-
-function prevSlide() {
-    showSlide(index - 1);
-}
-
-
-// ==========================
-//  AUTOPLAY
-// ==========================
-
-function iniciarAuto() {
-
-    detenerAuto(); // evita duplicados
-
-    auto = setInterval(() => {
-        nextSlide();
-    }, 5000); // más fluido (antes 10s)
-}
-
-function detenerAuto() {
-    if (auto) {
-        clearInterval(auto);
-        auto = null;
+    function abrirModal(id) {
+        document.getElementById(id).style.display = 'flex';
     }
-}
 
+    function cerrarModal(id) {
+        document.getElementById(id).style.display = 'none';
+    }
 
-// ==========================
-// 🖱️ PAUSA AL HOVER (PRO UX)
-// ==========================
+    window.onclick = function (event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+        }
+    };
 
-if (slide) {
-    slide.addEventListener("mouseenter", detenerAuto);
-    slide.addEventListener("mouseleave", iniciarAuto);
-}
+    let index = 0;
+    let auto = null;
+    let startX = 0;
 
+    const slide = document.getElementById('slideDest');
+    const items = slide ? slide.querySelectorAll('.item') : [];
+    const total = items.length;
 
-// ==========================
-// 📱 SWIPE MEJORADO
-// ==========================
+    function showSlide(i) {
+        if (!slide) return;
 
-let startX = 0;
-
-if (slide) {
-
-    slide.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].clientX;
-        detenerAuto();
-    });
-
-    slide.addEventListener("touchend", (e) => {
-
-        let endX = e.changedTouches[0].clientX;
-        let diff = startX - endX;
-
-        if (Math.abs(diff) > 50) {
-
-            if (diff > 0) {
-                nextSlide(); // izquierda
-            } else {
-                prevSlide(); // derecha
-            }
+        if (i >= total) {
+            index = 0;
+        } else if (i < 0) {
+            index = total - 1;
+        } else {
+            index = i;
         }
 
+        slide.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextSlide() {
+        showSlide(index + 1);
+    }
+
+    function prevSlide() {
+        showSlide(index - 1);
+    }
+
+    function iniciarAuto() {
+        detenerAuto();
+        auto = setInterval(() => {
+            nextSlide();
+        }, 5000);
+    }
+
+    function detenerAuto() {
+        if (auto) {
+            clearInterval(auto);
+            auto = null;
+        }
+    }
+
+    if (slide) {
+        slide.addEventListener('mouseenter', detenerAuto);
+        slide.addEventListener('mouseleave', iniciarAuto);
+
+        slide.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            detenerAuto();
+        });
+
+        slide.addEventListener('touchend', (e) => {
+            const endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+
+            iniciarAuto();
+        });
+
+        showSlide(0);
         iniciarAuto();
-    });
-}
+    }
 
-
-// ==========================
-// INICIO SEGURO
-// ==========================
-
-window.addEventListener("DOMContentLoaded", () => {
-
-    if (!slide) return;
-
-    showSlide(0);
-    iniciarAuto();
-
+    window.toggleDescription = toggleDescription;
+    window.toggleInfo = toggleInfo;
+    window.abrirModal = abrirModal;
+    window.cerrarModal = cerrarModal;
+    window.nextSlide = nextSlide;
+    window.prevSlide = prevSlide;
 });
-
-
 </script>
 
 <script src="js/validaciones.js"></script>
