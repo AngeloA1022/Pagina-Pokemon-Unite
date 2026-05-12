@@ -11,7 +11,7 @@ loginForm.addEventListener('submit', function(e) {
 
     const mensaje = document.getElementById('mensajeLogin');
 
-    // 🔴 ERRORES INDIVIDUALES
+    //  ERRORES INDIVIDUALES
     const errorEmail = document.getElementById('errorEmailLogin');
     const errorPassword = document.getElementById('errorPasswordLogin');
 
@@ -51,7 +51,7 @@ loginForm.addEventListener('submit', function(e) {
     }
 
     if (!valido) {
-        mostrarMensaje(mensaje, "Corrige los errores ❌", "red");
+        mostrarMensaje(mensaje, "Corrige los errores ", "red");
         return;
     }
 
@@ -66,7 +66,7 @@ loginForm.addEventListener('submit', function(e) {
     );
 
     if (!usuarioValido) {
-        mostrarMensaje(mensaje, "Email o contraseña incorrectos ❌", "red");
+        mostrarMensaje(mensaje, "Email o contraseña incorrectos ", "red");
 
         // Marcar ambos como error
         emailInput.classList.add("input-error");
@@ -76,11 +76,11 @@ loginForm.addEventListener('submit', function(e) {
     }
 
     // ==========================
-    // GUARDAR SESIÓN 🔥
+    // GUARDAR SESIÓN 
     // ==========================
     localStorage.setItem("usuarioActivo", JSON.stringify(usuarioValido));
 
-    mostrarMensaje(mensaje, `Bienvenido ${usuarioValido.usuario} 🔥`, "#00ff88");
+    mostrarMensaje(mensaje, `Bienvenido ${usuarioValido.usuario} `, "#00ff88");
 
     loginForm.reset();
 

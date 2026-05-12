@@ -41,9 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // 🔥 VALIDACIÓN QUE QUERÍAS
+        //  VALIDACIÓN QUE QUERÍAS
         if (password.value !== confirmar.value) {
-            mostrarMensaje(mensaje, "❌ Las contraseñas no coinciden", "red");
+            mostrarMensaje(mensaje, "Las contraseñas no coinciden", "red");
             marcarCampo(confirmar, "error");
             return;
         }
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         marcarCampo(password, "ok");
         marcarCampo(confirmar, "ok");
 
-        mostrarMensaje(mensaje, "Registro exitoso ✅", "green");
+        mostrarMensaje(mensaje, "Registro exitoso ", "green");
         registroForm.reset();
     });
 
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
         marcarCampo(email, "ok");
         marcarCampo(password, "ok");
 
-        mostrarMensaje(mensaje, "Inicio de sesión exitoso ✅", "green");
+        mostrarMensaje(mensaje, "Inicio de sesión exitoso ", "green");
         loginForm.reset();
     });
 
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        mostrarMensaje(mensaje, "Mensaje enviado correctamente ✅", "green");
+        mostrarMensaje(mensaje, "Mensaje enviado correctamente ", "green");
         contactoForm.reset();
         contador.textContent = "0 / 200";
     });

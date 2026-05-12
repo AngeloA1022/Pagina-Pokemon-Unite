@@ -75,7 +75,7 @@ registroForm.addEventListener('submit', function(e) {
     // VALIDACIÓN FINAL
     // =====================
     if (!valido) {
-        mostrarMensaje(mensaje, "Corrige los errores ❌", "red");
+        mostrarMensaje(mensaje, "Corrige los errores ", "red");
         return;
     }
 
@@ -87,13 +87,13 @@ registroForm.addEventListener('submit', function(e) {
     const existe = usuarios.find(u => u.email === email);
 
     if (existe) {
-        mostrarMensaje(mensaje, "El correo ya está registrado ⚠️", "orange");
+        mostrarMensaje(mensaje, "El correo ya está registrado ", "orange");
         return;
     }
 
     usuarios.push({ usuario, email, password });
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
-    mostrarMensaje(mensaje, "Registro exitoso 🎉", "#00ff88");
+    mostrarMensaje(mensaje, "Registro exitoso ", "#00ff88");
     registroForm.reset();
 });

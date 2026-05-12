@@ -73,12 +73,12 @@ contactoForm.addEventListener('submit', function(e) {
     }
 
     if (!valido) {
-        mostrarMensaje(respuesta, "Corrige los errores ❌", "red");
+        mostrarMensaje(respuesta, "Corrige los errores ", "red");
         return;
     }
 
-    // ✅ ÉXITO
-    mostrarMensaje(respuesta, "Mensaje enviado correctamente 🎉", "#00ff88");
+    //  ÉXITO
+    mostrarMensaje(respuesta, "Mensaje enviado correctamente ", "#00ff88");
 
     contactoForm.reset();
     contador.textContent = "0 / 200";
