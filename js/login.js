@@ -48,8 +48,6 @@ loginForm.addEventListener('submit', function(e) {
         errorPassword.textContent = "La contraseña es obligatoria";
         passwordInput.classList.add("input-error");
         valido = false;
-    } else {
-        passwordInput.classList.add("input-ok");
     }
 
     // VALIDACIÓN GENERAL

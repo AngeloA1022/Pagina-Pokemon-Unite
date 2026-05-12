@@ -176,6 +176,6 @@ document.getElementById("passwordLogin")?.addEventListener("input", () => {
         marcarError(input);
     } else {
         mostrarMensaje(error, "", "");
-        marcarOk(input);
+        input.classList.remove("input-error", "input-ok");
     }
 });
