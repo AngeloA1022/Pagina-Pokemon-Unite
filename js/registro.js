@@ -92,8 +92,9 @@ registroForm.addEventListener('submit', function(e) {
         return;
     }
 
-    // GUARDAR EN MEMORIA
+    // GUARDAR EN MEMORIA y localStorage
     usuarios.push({ usuario, email, password });
+    guardarUsuarios();
 
     mostrarMensaje(mensaje, "Registro exitoso", "#00ff88");
 

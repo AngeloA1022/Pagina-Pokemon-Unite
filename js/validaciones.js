@@ -2,7 +2,24 @@
 // DATOS GLOBALES
 // =========================
 
-const usuarios = [];
+const usuariosKey = "usuariosPokemonUnite";
+const usuarios = cargarUsuarios();
+
+function cargarUsuarios() {
+    const data = localStorage.getItem(usuariosKey);
+    if (!data) return [];
+
+    try {
+        const parsed = JSON.parse(data);
+        return Array.isArray(parsed) ? parsed : [];
+    } catch (error) {
+        return [];
+    }
+}
+
+function guardarUsuarios() {
+    localStorage.setItem(usuariosKey, JSON.stringify(usuarios));
+}
 
 // ==========================
 // VALIDACIONES GENERALES
