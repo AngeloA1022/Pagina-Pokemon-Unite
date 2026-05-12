@@ -10,6 +10,46 @@
 </head>
 <body>
 
+<!--Configurar nombre en Git
+git config --global user.name "AngeloA1022"
+# Configurar correo en Git
+git config --global user.email "angelo.armijo@inacapmail.cl"
+--> 
+
+<header>
+    <div class="logo">
+        <img src="images/logo.png" alt="Logo de Pokemon Unite" class="logo-img"> 
+        <h1>Guia para Pokemon Unite</h1>
+    </div>
+
+    <div class="container">
+        <p>Bienvenido a la guía de Pokemon Unite, el juego de batalla en equipo que ha conquistado a millones de jugadores en todo el mundo.
+        En esta guía, encontrarás consejos, estrategias y trucos para mejorar tu rendimiento en el campo de batalla y convertirte en un maestro de Pokemon Unite.</p>
+        <br>
+    </div>
+    <hr>
+</header>
+
+
+<!-- Barra de navegación -->
+<nav>
+    <ul>
+
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#consejos">Consejos</a></li>
+        <li><a href="#personajes">Personajes</a></li>
+        <li><a href="#mapas">Mapas</a></li>
+        <li><a href="#objetos">Objetos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+
+        <!-- BOTONES MODAL -->
+        <li><button class="nav-btn" onclick="abrirModal('modalRegistro')">Registro</button></li>
+        <li><button class="nav-btn" onclick="abrirModal('modalLogin')">Login</button></li>
+
+    </ul>
+</nav>
+
+
 <hr>
 
 
@@ -71,46 +111,6 @@
     </div>
 </div>
 
-
-
-<!--Configurar nombre en Git
-git config --global user.name "AngeloA1022"
-# Configurar correo en Git
-git config --global user.email "angelo.armijo@inacapmail.cl"
---> 
-
-<header>
-    <div class="logo">
-        <img src="images/logo.png" alt="Logo de Pokemon Unite" class="logo-img"> 
-        <h1>Guia para Pokemon Unite</h1>
-    </div>
-
-    <div class="container">
-        <p>Bienvenido a la guía de Pokemon Unite, el juego de batalla en equipo que ha conquistado a millones de jugadores en todo el mundo.
-        En esta guía, encontrarás consejos, estrategias y trucos para mejorar tu rendimiento en el campo de batalla y convertirte en un maestro de Pokemon Unite.</p>
-        <br>
-    </div>
-    <hr>
-</header>
-
-
-<!-- Barra de navegación -->
-<nav>
-    <ul>
-
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#consejos">Consejos</a></li>
-        <li><a href="#personajes">Personajes</a></li>
-        <li><a href="#mapas">Mapas</a></li>
-        <li><a href="#objetos">Objetos</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-
-        <!-- BOTONES MODAL -->
-        <li><button class="nav-btn" onclick="abrirModal('modalRegistro')">Registro</button></li>
-        <li><button class="nav-btn" onclick="abrirModal('modalLogin')">Login</button></li>
-
-    </ul>
-</nav>
 
 <section class="destacados">
     <h2>Pokémon Destacados</h2>
@@ -834,7 +834,7 @@ function iniciarAuto() {
 
     auto = setInterval(() => {
         nextSlide();
-    }, 4000); // más fluido (antes 10s)
+    }, 5000); // más fluido (antes 10s)
 }
 
 function detenerAuto() {
