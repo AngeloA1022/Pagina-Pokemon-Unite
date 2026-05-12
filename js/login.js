@@ -20,6 +20,7 @@ loginForm.addEventListener('submit', function(e) {
     // ==========================
     errorEmail.textContent = "";
     errorPassword.textContent = "";
+    mensaje.textContent = "";
 
     emailInput.classList.remove("input-error", "input-ok");
     passwordInput.classList.remove("input-error", "input-ok");
@@ -52,34 +53,50 @@ loginForm.addEventListener('submit', function(e) {
 
     // VALIDACIÓN GENERAL
     if (!valido) {
-        mostrarMensaje(mensaje, "Corrige los errores", "red");
+        const usuario = usuarios.find(u => u.email === email);
+        if (usuario) {
+            mostrarMensaje(mensaje, "Ingresa tu contraseña", "red");
+        } else {
+            mostrarMensaje(mensaje, "Corrige los errores", "red");
+        }
         return;
     }
 
     // ==========================
-    // USAR ARREGLO GLOBAL (SIN localStorage)
+    // VALIDAR USUARIO (MEJORADO)
     // ==========================
-    const usuarioValido = usuarios.find(
-        u => u.email === email && u.password === password
-    );
+    const usuario = usuarios.find(u => u.email === email);
 
-    if (!usuarioValido) {
-        mostrarMensaje(mensaje, "Email o contraseña incorrectos", "red");
-
+    if (!usuario) {
+        errorEmail.textContent = "Este correo no está registrado";
         emailInput.classList.add("input-error");
+
+        mostrarMensaje(mensaje, "Usuario no encontrado", "red");
+        return;
+    }
+
+    // ==========================
+    // VALIDAR CONTRASEÑA (MEJORADO)
+    // ==========================
+    if (usuario.password !== password) {
+        errorPassword.textContent = "Contraseña incorrecta";
         passwordInput.classList.add("input-error");
 
+        // BORRAR PASSWORD (MEJOR UX)
+        passwordInput.value = "";
+
+        mostrarMensaje(mensaje, "La contraseña no coincide", "red");
         return;
     }
 
     // ==========================
-    // GUARDAR SESIÓN EN MEMORIA
+    // LOGIN CORRECTO
     // ==========================
     if (typeof iniciarSesion === "function") {
-        iniciarSesion(usuarioValido);
+        iniciarSesion(usuario);
     }
 
-    mostrarMensaje(mensaje, `Bienvenido ${usuarioValido.usuario}`, "#00ff88");
+    mostrarMensaje(mensaje, `Bienvenido ${usuario.usuario}`, "#00ff88");    
 
     // LIMPIAR FORM
     loginForm.reset();
