@@ -77,12 +77,11 @@ loginForm.addEventListener('submit', function(e) {
     // ==========================
     // GUARDAR SESIÓN EN MEMORIA
     // ==========================
-    sesionActiva = usuarioValido;
+    if (typeof iniciarSesion === "function") {
+        iniciarSesion(usuarioValido);
+    }
 
     mostrarMensaje(mensaje, `Bienvenido ${usuarioValido.usuario}`, "#00ff88");
-
-    // MOSTRAR ARRIBA
-    mostrarSesion();
 
     // LIMPIAR FORM
     loginForm.reset();

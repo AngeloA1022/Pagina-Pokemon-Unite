@@ -26,6 +26,9 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
         En esta guía, encontrarás consejos, estrategias y trucos para mejorar tu rendimiento en el campo de batalla y convertirte en un maestro de Pokemon Unite.</p>
         <br>
     </div>
+
+    <div id="usuarioHeader" style="display:none; color:#00ff88; margin: 10px 0;"></div>
+
     <hr>
 </header>
 
@@ -741,6 +744,17 @@ function domReady(fn) {
 
 domReady(() => {
 
+    // ==========================
+    // MOSTRAR / OCULTAR PASSWORD
+    // ==========================
+    function togglePassword(id) {
+        const input = document.getElementById(id);
+        input.type = input.type === "password" ? "text" : "password";
+    }
+
+    // ==========================
+    // TOGGLE DESCRIPCIÓN CARD
+    // ==========================
     function toggleDescription(button) {
         const card = button.closest('.card');
         const p = card.querySelector('p');
@@ -754,6 +768,9 @@ domReady(() => {
         }
     }
 
+    // ==========================
+    // MOSTRAR INFO + RADIO
+    // ==========================
     function toggleInfo(id) {
         const el = document.getElementById(id);
         el.style.display = el.style.display === 'none' ? 'block' : 'none';
@@ -772,6 +789,9 @@ domReady(() => {
         });
     }
 
+    // ==========================
+    // MODALES
+    // ==========================
     function abrirModal(id) {
         document.getElementById(id).style.display = 'flex';
     }
@@ -786,6 +806,91 @@ domReady(() => {
         }
     };
 
+    // ==========================
+    // VALIDACIONES TIEMPO REAL REGISTRO
+    // ==========================
+    function validarRegistroTiempoReal() {
+        const nombre = document.getElementById("nombreRegistro");
+        const email = document.getElementById("emailRegistro");
+        const password = document.getElementById("passwordRegistro");
+        const confirm = document.getElementById("confirmPassword");
+
+        if (!nombre) return;
+
+        nombre.addEventListener("input", () => {
+            if (campoVacio(nombre.value)) {
+                mostrarMensaje(errorNombre, "El nombre es obligatorio", "red");
+                marcarError(nombre);
+            } else {
+                mostrarMensaje(errorNombre, "Correcto", "#00ff88");
+                marcarOk(nombre);
+            }
+        });
+
+        email.addEventListener("input", () => {
+            if (!validarEmail(email.value)) {
+                mostrarMensaje(errorEmail, "Correo inválido", "red");
+                marcarError(email);
+            } else {
+                mostrarMensaje(errorEmail, "Correo válido", "#00ff88");
+                marcarOk(email);
+            }
+        });
+
+        password.addEventListener("input", () => {
+            if (!validarPassword(password.value)) {
+                mostrarMensaje(errorPassword, "Mínimo 8 caracteres con número", "red");
+                marcarError(password);
+            } else {
+                mostrarMensaje(errorPassword, "Contraseña segura", "#00ff88");
+                marcarOk(password);
+            }
+        });
+
+        confirm.addEventListener("input", () => {
+            if (!passwordsIguales(password.value, confirm.value)) {
+                mostrarMensaje(errorConfirm, "No coinciden", "red");
+                marcarError(confirm);
+            } else {
+                mostrarMensaje(errorConfirm, "Coinciden", "#00ff88");
+                marcarOk(confirm);
+            }
+        });
+    }
+
+    // ==========================
+    // VALIDACIONES TIEMPO REAL LOGIN
+    // ==========================
+    function validarLoginTiempoReal() {
+        const email = document.getElementById("emailLogin");
+        const password = document.getElementById("passwordLogin");
+
+        if (!email) return;
+
+        email.addEventListener("input", () => {
+            if (!validarEmail(email.value)) {
+                mostrarMensaje(errorEmailLogin, "Correo inválido", "red");
+                marcarError(email);
+            } else {
+                mostrarMensaje(errorEmailLogin, "Correcto", "#00ff88");
+                marcarOk(email);
+            }
+        });
+
+        password.addEventListener("input", () => {
+            if (campoVacio(password.value)) {
+                mostrarMensaje(errorPasswordLogin, "Ingresa tu contraseña", "red");
+                marcarError(password);
+            } else {
+                mostrarMensaje(errorPasswordLogin, "OK", "#00ff88");
+                marcarOk(password);
+            }
+        });
+    }
+
+    // ==========================
+    // CARRUSEL CON SWIPE
+    // ==========================
     let index = 0;
     let auto = null;
     let startX = 0;
@@ -797,13 +902,9 @@ domReady(() => {
     function showSlide(i) {
         if (!slide) return;
 
-        if (i >= total) {
-            index = 0;
-        } else if (i < 0) {
-            index = total - 1;
-        } else {
-            index = i;
-        }
+        if (i >= total) index = 0;
+        else if (i < 0) index = total - 1;
+        else index = i;
 
         slide.style.transform = `translateX(-${index * 100}%)`;
     }
@@ -818,9 +919,7 @@ domReady(() => {
 
     function iniciarAuto() {
         detenerAuto();
-        auto = setInterval(() => {
-            nextSlide();
-        }, 5000);
+        auto = setInterval(nextSlide, 5000);
     }
 
     function detenerAuto() {
@@ -844,11 +943,7 @@ domReady(() => {
             const diff = startX - endX;
 
             if (Math.abs(diff) > 50) {
-                if (diff > 0) {
-                    nextSlide();
-                } else {
-                    prevSlide();
-                }
+                diff > 0 ? nextSlide() : prevSlide();
             }
 
             iniciarAuto();
@@ -858,12 +953,23 @@ domReady(() => {
         iniciarAuto();
     }
 
+    // ==========================
+    // ACTIVAR VALIDACIONES
+    // ==========================
+    validarRegistroTiempoReal();
+    validarLoginTiempoReal();
+
+    // ==========================
+    // EXPORTAR FUNCIONES
+    // ==========================
+    window.togglePassword = togglePassword;
     window.toggleDescription = toggleDescription;
     window.toggleInfo = toggleInfo;
     window.abrirModal = abrirModal;
     window.cerrarModal = cerrarModal;
     window.nextSlide = nextSlide;
     window.prevSlide = prevSlide;
+
 });
 </script>
 
