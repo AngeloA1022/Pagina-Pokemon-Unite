@@ -550,7 +550,7 @@ button:hover {
 
 
 /* ===================== */
-/* 🔥 CARRUSEL DESTACADOS */
+/*  CARRUSEL DESTACADOS */
 /* ===================== */
 
 /* Sección */
@@ -564,7 +564,7 @@ button:hover {
 
 /* Contenedor principal */
 .carrusel-container {
-    width: 80%;
+    width: 100%;
     margin: 40px auto;
     overflow: hidden;
     position: relative;
@@ -593,24 +593,24 @@ button:hover {
     justify-content: center;
     align-items: center;
 
-    height: 320px; /* 🔥 clave para centrado vertical */
+    height: 320px; 
     text-align: center;
 }
 
 /* Imagen */
 .item img {
     width: 200px;
-    height: auto;
+    height: center;
 
     display: block;
     margin: 0 auto;
 
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
 
 /* Hover moderno */
 .item img:hover {
-    transform: scale(1.1);
+    transform: scale(1.0);
 }
 
 /* Título */
