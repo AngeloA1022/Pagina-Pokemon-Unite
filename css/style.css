@@ -16,6 +16,7 @@ html {
     scroll-behavior: smooth;
 }
 
+
 /* Variables globales de colores y tamaños */
 :root {
     --bg: #ffffff; /* color de fondo principal */
