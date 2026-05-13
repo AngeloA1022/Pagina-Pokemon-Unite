@@ -30,12 +30,47 @@ function campoVacio(valor) {
 }
 
 function validarEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const dominiosPermitidos = /^[^\s@]+@(gmail|hotmail)\.(com|es)$/i;
+    return dominiosPermitidos.test(email);
 }
 
 function validarPassword(password) {
-    return /^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(password);
+    // Al menos 8 caracteres, una letra, un número y un carácter especial
+    return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&_#])[A-Za-z\d@$!%*?&_#]{8,}$/.test(password);
 }
+
+function obtenerErrorPassword(password) {
+    const errores = [];
+    
+    if (!password || password.length < 8) {
+        errores.push("Mínimo 8 caracteres");
+    }
+    if (!/[A-Za-z]/.test(password)) {
+        errores.push("al menos una letra");
+    }
+    if (!/\d/.test(password)) {
+        errores.push("al menos un número");
+    }
+    if (!/[@$!%*?&_#]/.test(password)) {
+        errores.push("al menos un carácter especial (@$!%*?&_#)");
+    }
+    
+    return errores.length > 0 ? "Necesita: " + errores.join(", ") : "";
+}
+
+function obtenerErrorEmail(email) {
+    if (!/@/.test(email)) {
+        return "Debe contener @";
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        return "Formato incorrecto";
+    }
+    if (!/gmail|hotmail/i.test(email)) {
+        return "Solo se permiten dominios @gmail.com, @gmail.es, @hotmail.com o @hotmail.es";
+    }
+    return "";
+}
+
 
 function passwordsIguales(p1, p2) {
     return p1 === p2;

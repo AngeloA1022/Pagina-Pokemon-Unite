@@ -36,12 +36,15 @@ loginForm.addEventListener('submit', function(e) {
         errorEmail.textContent = "El correo es obligatorio";
         emailInput.classList.add("input-error");
         valido = false;
-    } else if (!validarEmail(email)) {
-        errorEmail.textContent = "Formato de correo inválido";
-        emailInput.classList.add("input-error");
-        valido = false;
     } else {
-        emailInput.classList.add("input-ok");
+        const errorEmailMsg = obtenerErrorEmail(email);
+        if (errorEmailMsg) {
+            errorEmail.textContent = errorEmailMsg;
+            emailInput.classList.add("input-error");
+            valido = false;
+        } else {
+            emailInput.classList.add("input-ok");
+        }
     }
 
     // PASSWORD

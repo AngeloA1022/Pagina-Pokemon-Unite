@@ -818,10 +818,15 @@ domReady(() => {
     // VALIDACIONES TIEMPO REAL REGISTRO
     // ==========================
     function validarRegistroTiempoReal() {
-        const nombre = document.getElementById("nombreRegistro");
+        const nombre = document.getElementById("usuario");
         const email = document.getElementById("emailRegistro");
-        const password = document.getElementById("passwordRegistro");
+        const password = document.getElementById("password");
         const confirm = document.getElementById("confirmPassword");
+
+        const errorNombre = document.getElementById("errorUsuario");
+        const errorEmail = document.getElementById("errorEmail");
+        const errorPassword = document.getElementById("errorPassword");
+        const errorConfirm = document.getElementById("errorConfirmPassword");
 
         if (!nombre) return;
 
@@ -836,21 +841,23 @@ domReady(() => {
         });
 
         email.addEventListener("input", () => {
-            if (!validarEmail(email.value)) {
-                mostrarMensaje(errorEmail, "Correo inválido", "red");
+            const errorMsg = obtenerErrorEmail(email.value);
+            if (errorMsg) {
+                mostrarMensaje(errorEmail, errorMsg, "red");
                 marcarError(email);
             } else {
-                mostrarMensaje(errorEmail, "Correo válido", "#00ff88");
+                mostrarMensaje(errorEmail, "✓ Correcto", "#00ff88");
                 marcarOk(email);
             }
         });
 
         password.addEventListener("input", () => {
-            if (!validarPassword(password.value)) {
-                mostrarMensaje(errorPassword, "Mínimo 8 caracteres con número", "red");
+            const errorMsg = obtenerErrorPassword(password.value);
+            if (errorMsg) {
+                mostrarMensaje(errorPassword, errorMsg, "red");
                 marcarError(password);
             } else {
-                mostrarMensaje(errorPassword, "Contraseña segura", "#00ff88");
+                mostrarMensaje(errorPassword, "✓ Contraseña segura", "#00ff88");
                 marcarOk(password);
             }
         });
@@ -872,15 +879,19 @@ domReady(() => {
     function validarLoginTiempoReal() {
         const email = document.getElementById("emailLogin");
         const password = document.getElementById("passwordLogin");
+        
+        const errorEmailLogin = document.getElementById("errorEmailLogin");
+        const errorPasswordLogin = document.getElementById("errorPasswordLogin");
 
         if (!email) return;
 
         email.addEventListener("input", () => {
-            if (!validarEmail(email.value)) {
-                mostrarMensaje(errorEmailLogin, "Correo inválido", "red");
+            const errorMsg = obtenerErrorEmail(email.value);
+            if (errorMsg) {
+                mostrarMensaje(errorEmailLogin, errorMsg, "red");
                 marcarError(email);
             } else {
-                mostrarMensaje(errorEmailLogin, "Correcto", "#00ff88");
+                mostrarMensaje(errorEmailLogin, "✓ Correcto", "#00ff88");
                 marcarOk(email);
             }
         });
@@ -890,7 +901,7 @@ domReady(() => {
                 mostrarMensaje(errorPasswordLogin, "Ingresa tu contraseña", "red");
                 marcarError(password);
             } else {
-                mostrarMensaje(errorPasswordLogin, "OK", "#00ff88");
+                mostrarMensaje(errorPasswordLogin, "✓ OK", "#00ff88");
                 marcarOk(password);
             }
         });

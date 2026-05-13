@@ -43,23 +43,37 @@ registroForm.addEventListener('submit', function(e) {
     // =====================
     // EMAIL
     // =====================
-    if (!validarEmail(email)) {
-        document.getElementById("errorEmail").textContent = "Correo inválido";
+    if (campoVacio(email)) {
+        document.getElementById("errorEmail").textContent = "El correo es obligatorio";
         emailInput.classList.add("input-error");
         valido = false;
     } else {
-        emailInput.classList.add("input-ok");
+        const errorEmail = obtenerErrorEmail(email);
+        if (errorEmail) {
+            document.getElementById("errorEmail").textContent = errorEmail;
+            emailInput.classList.add("input-error");
+            valido = false;
+        } else {
+            emailInput.classList.add("input-ok");
+        }
     }
 
     // =====================
     // PASSWORD
     // =====================
-    if (!validarPassword(password)) {
-        document.getElementById("errorPassword").textContent = "Mínimo 8 caracteres";
+    if (campoVacio(password)) {
+        document.getElementById("errorPassword").textContent = "La contraseña es obligatoria";
         passwordInput.classList.add("input-error");
         valido = false;
     } else {
-        passwordInput.classList.add("input-ok");
+        const errorPassword = obtenerErrorPassword(password);
+        if (errorPassword) {
+            document.getElementById("errorPassword").textContent = errorPassword;
+            passwordInput.classList.add("input-error");
+            valido = false;
+        } else {
+            passwordInput.classList.add("input-ok");
+        }
     }
 
     // =====================
