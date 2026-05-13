@@ -915,6 +915,9 @@ domReady(() => {
         else index = i;
 
         slide.style.transform = `translateX(-${index * 100}%)`;
+        items.forEach((item, itemIndex) => {
+            item.classList.toggle('active', itemIndex === index);
+        });
     }
 
     function nextSlide() {
