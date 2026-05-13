@@ -106,4 +106,9 @@ loginForm.addEventListener('submit', function(e) {
 
     emailInput.classList.remove("input-ok");
     passwordInput.classList.remove("input-ok");
+
+    // Cerrar modal después de 1 segundo para que el usuario vea el mensaje
+    setTimeout(() => {
+        cerrarModal('modalLogin');
+    }, 1000);
 });

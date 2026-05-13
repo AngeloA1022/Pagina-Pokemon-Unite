@@ -113,4 +113,9 @@ registroForm.addEventListener('submit', function(e) {
     mostrarMensaje(mensaje, "Registro exitoso", "#00ff88");
 
     registroForm.reset();
+
+    // Cerrar modal después de 1 segundo para que el usuario vea el mensaje
+    setTimeout(() => {
+        cerrarModal('modalRegistro');
+    }, 1000);
 });
