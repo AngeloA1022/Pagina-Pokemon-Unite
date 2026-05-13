@@ -291,7 +291,7 @@ section h2 {
 /* Botón de ataque */
 .attack-button {
     background-color: #c0392b;
-    color: white;
+    color: black;
     padding: 10px 20px;
     justify-content: center;
     align-items: center;
@@ -306,7 +306,7 @@ section h2 {
 /* Botón de set */
 .set-button {
     background-color: #2e86c1;
-    color: white;
+    color: black;
     padding: 8px 10px;
     justify-content: center;
     border: none;
