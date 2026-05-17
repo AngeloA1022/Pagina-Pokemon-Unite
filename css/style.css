@@ -728,6 +728,8 @@ button:hover {
 /* Contenedor principal */
 .carrusel-container {
     width: 100%;
+    max-width: 620px;
+    aspect-ratio: 1 / 1;
     margin: 40px auto;
     overflow: hidden;
     position: relative;
@@ -743,19 +745,20 @@ button:hover {
     display: flex;
     transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
     width: 100%;
+    height: 100%;
     will-change: transform;
 }
 
 /* Item individual */
 .item {
     min-width: 100%;
+    height: 100%;
     background: #111;
     padding: 24px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 340px;
     text-align: center;
     opacity: 0.55;
     transform: scale(0.95);

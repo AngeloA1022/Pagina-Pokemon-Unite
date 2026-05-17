@@ -30,7 +30,7 @@ function campoVacio(valor) {
 }
 
 function validarEmail(email) {
-    const dominiosPermitidos = /^[^\s@]+@(gmail|hotmail)\.(com|es)$/i;
+    const dominiosPermitidos = /^[^\s@]+@[a-zA-Z0-9.-]+\.(com|cl|net|org)$/i;
     return dominiosPermitidos.test(email);
 }
 
@@ -62,11 +62,11 @@ function obtenerErrorEmail(email) {
     if (!/@/.test(email)) {
         return "Debe contener @";
     }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (!/^[^\s@]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i.test(email)) {
         return "Formato incorrecto";
     }
-    if (!/gmail|hotmail/i.test(email)) {
-        return "Solo se permiten dominios @gmail.com, @gmail.es, @hotmail.com o @hotmail.es";
+    if (!/\.(com|cl|net|org)$/i.test(email)) {
+        return "Solo se permiten dominios con extensión .com, .cl, .net o .org";
     }
     return "";
 }
@@ -130,8 +130,9 @@ function validarEmailInput(inputId, errorId) {
         return false;
     }
 
-    if (!validarEmail(input.value)) {
-        mostrarMensaje(error, "Correo inválido", "red");
+    const errorMsg = obtenerErrorEmail(input.value);
+    if (errorMsg) {
+        mostrarMensaje(error, errorMsg, "red");
         marcarError(input);
         return false;
     }
