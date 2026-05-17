@@ -163,14 +163,14 @@ nav ul li a:focus {
 
 /* Secciones */
 section {
-    background-color: rgba(255, 255, 255, 0.92); /* fondo claro */
+    background-color: rgba(255, 255, 255, 0.85); /* blanco semi-transparente */
     padding: 24px;
     margin: 20px auto;
     border-radius: 18px;
     width: 85%;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(46,196,182,0.12);
+    box-shadow: none;
+    backdrop-filter: none;
+    border: none;
 }
 
 section h2 {
@@ -718,7 +718,7 @@ button:hover {
 
 /* Sección */
 .destacados {
-    background: #000;
+    background: rgba(255, 255, 255, 0.85);
     color: #fff;
     text-align: center;
     padding: 40px;
