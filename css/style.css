@@ -23,9 +23,9 @@ html {
 /* Variables globales de colores y tamaños */
 :root {
     --bg: #ffffff; /* color de fondo principal */
-    --text: #111827; /* color de texto principal */
+    --text: #000000; /* color de texto principal */
     --primary: #0ebd80; /* verde principal */
-    --primary-dark: #157a5f; /* verde oscuro */
+    --primary-dark: #105d48; /* verde oscuro */
     --blue: #4169E1;; /* azul secundario */
     --accent: rgba(31, 169, 120, 0.16);
     --primary-contrast: #ffffff; /* texto sobre el color principal */
