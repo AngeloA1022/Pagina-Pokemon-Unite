@@ -288,6 +288,19 @@ section h2 {
     font-size: 16px; 
 }
 
+/* Boton de Unirse */
+.btn-unete {
+    background-color: var(--primary);
+    color: black;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+}
+
+
+
 /* Botón de ataque */
 .attack-button {
     background-color: #c0392b;
