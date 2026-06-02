@@ -37,7 +37,7 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
 <!-- Barra de navegación -->
 <nav>
     <ul>
-
+        <li><a href="#bienvenida">Bienvenida</a></li>
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#consejos">Consejos</a></li>
         <li><a href="#personajes">Personajes</a></li>
@@ -122,20 +122,28 @@ git config --global user.email "angelo.armijo@inacapmail.cl"
     </div>
 </div>
 
-<section class="bienvenida">
+
+
+<br>
+<section id="bienvenida" class="Bienvenida">
+    <div class="container">
+
     <div class="container">
         <h2>¡Bienvenido a la Guía de Pokemon Unite!</h2>
-        <p>
-            En esta sección encontrarás una introducción al juego, consejos para principiantes 
-            y estrategias básicas para comenzar tu aventura en Pokemon Unite.
-        </p>
+        <div class="bienvenida-boxes">
+            <div class="bienvenida-box bienvenida-box-info">
+                <h3>Tu guía de inicio</h3>
+                <p>En esta sección encontrarás una introducción al juego, consejos para principiantes y estrategias básicas para comenzar tu aventura en Pokemon Unite.</p>
+            </div>
+            <div class="bienvenida-box bienvenida-box-imagen">
+                <img src="images/logo.png" alt="Pokemon Unite" />
+            </div>
+            <div class="bienvenida-box bienvenida-box-boton">
+                <button class="btn-unete" onclick="abrirModal('modalRegistro')">Únete a nuestra comunidad</button>
+            </div>
+        </div>
     </div>
-
-    <button class="btn-unete" onclick="abrirModal('modalRegistro')">
-        Únete a nuestra comunidad
-    </button>
 </section>
-
 
 
 <section class="destacados">
